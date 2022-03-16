@@ -1,0 +1,27 @@
+- profile:
+  initials: RF
+  name: Reti Fier
+  profession: Full Stack Developer
+  image: images/icon.png
+  location: Yangon, Myanmar
+  relocation: true
+  company: Wunder Tek
+  for_hire: true
+  focus: Learning Gatsby
+  focus_url: https://gatsbyjs.org
+  about: |
+    As a young bloke with immense interest in Information Technology, enrolled in university of Lithan to pursue a career in web/application development industry. Combined with the experience I had and my endless exploration into the heart of technologies, I wanted to learn more and took a gap and utilize it. In that brief period, I was able to successfully launch and develop an entire project . With all the wondering of what’s going to be next, the journey awaits.
+  skills:
+    - JavaScript
+    - React
+    - NODE JS
+    - React Native
+  tools:
+    - React
+    - VSCode
+    - Gatsby
+  budget:
+    currency: $
+    min: 5
+    max: 30
+    default: 10
