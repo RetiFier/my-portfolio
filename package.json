@@ -27,9 +27,12 @@
     "gatsby-source-filesystem": "^4.9.1",
     "gatsby-transformer-sharp": "^4.9.0",
     "gatsby-transformer-yaml": "^4.9.0",
+    "lottie-web": "^5.9.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.3.1",
+    "typed.js": "^2.0.12"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.2",

@@ -1,0 +1,39 @@
+---
+- company:
+    name: Zino Tech
+    logo: images/zino.png
+    url: https://www.zino.tech/
+  jobTitle: Junior React Developer
+  fromDate: Aug 2019
+  toDate: Mar 2020
+  technologies:
+    - React
+    - React Native
+    - Next JS
+    - Redux
+    - Express JS
+    - REST API
+  description:
+    Sccessfully developed and produced Andriod + Web applications based
+    on React , React Native and ExpressJS.Collaborated with a team to manage a PoS
+    system using React and NextJS
+- company:
+    name: WunderTek
+    logo: images/wundertek.jpg
+    url:
+  jobTitle: Full Stack Developer
+  fromDate: May 2020
+  toDate: Aug 2021
+  technologies:
+    - React
+    - Next JS
+    - Redux
+    - Express JS
+    - REST API
+    - MongoDB
+  description:
+    I've experience in working as both front-end and back-end project.
+    In that front-end, i've built appealing UI design in harmony with Figma blueprints.
+    The back-end part was done effectively with Express JS along with MongoDB for
+    database purposes. Plus, I've used testing libraries in both of the following
+    role.

@@ -1,15 +1,33 @@
+import { JobType } from "./job";
+import { ProjectType } from "./project";
+
 export interface AboutDataType {
   data: {
     profile: ProfileType;
-    social: SocialType;
+    social: { nodes: SocialType[] };
+    job: { nodes: JobType[] };
+    project: { nodes: ProjectType[] };
   };
 }
 export interface SocialType {
-  name: string;
+  name:
+    | "behance"
+    | "dribbble"
+    | "facebook"
+    | "github"
+    | "goodreads"
+    | "medium"
+    | "instagram"
+    | "linkedin"
+    | "producthunt"
+    | "twitter"
+    | "youtube";
   url: string;
 }
 export interface ProfileType {
   about: string;
-  name: string;
+  fname: string;
+  lname: string;
   profession: string;
+  skills: string[];
 }

@@ -1,0 +1,13 @@
+---
+- project:
+    name: OP2
+    logo: images/op2.png
+    url: https://github.com/retifier
+  name: ONE PAGE PROTOTYPE (OP2)
+  date: Sep 2020
+  technologies:
+    - React
+    - Electron
+    - Java Script
+    - CSS
+  description: As a young bloke with an immense interest in information technology, I enrolled at the University of Lithan to pursue a career in the web/application development industry. Combined with the experience I had and my endless exploration into the heart of technology, I wanted to learn more and took a gap to utilize it. In that brief period, I was able to successfully launch and develop an entire project . With all the wondering of what’s going to be next, the journey awaits.

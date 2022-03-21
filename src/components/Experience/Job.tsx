@@ -13,12 +13,13 @@ const Job: FC<Omit<JobType, "description">> = ({
   technologies,
   children,
 }) => {
+  console.log(company.logo);
   return (
     <Box>
       <div className="flex gap-4 items-start md:items-center">
         {company.logo && (
           <GatsbyImage
-            image={company.logo}
+            image={company.logo.childImageSharp.gatsbyImageData}
             alt={company.name}
             className="rounded-md"
           />

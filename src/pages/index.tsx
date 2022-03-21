@@ -3,16 +3,19 @@ import * as React from "react";
 import { AboutDataType } from "../@types/about";
 import { Footer } from "../components/Footer";
 import { Layout } from "../components/Layout";
+import ThemeContextProvider from "../context/ThemeContextProvider";
 import { About } from "./About";
+import "../styles/global.css";
 
 // markup
 const IndexPage = ({ data }: AboutDataType) => {
-  const { profile, social } = data;
-  console.log(data);
+  const { profile, social, job, project } = data;
   return (
-    <Layout>
-      <About />
-    </Layout>
+    <ThemeContextProvider>
+      <Layout social={social.nodes}>
+        <About profile={profile} job={job.nodes} project={project.nodes} />
+      </Layout>
+    </ThemeContextProvider>
   );
 };
 
@@ -21,22 +24,58 @@ export const query = graphql`
     profile: profileYaml {
       about
       company
-      focus
-      focus_url
       for_hire
       image {
         childImageSharp {
-          gatsbyImageData(layout: FIXED, width: 65, height: 65, quality: 95)
+          gatsbyImageData(layout: FIXED, width: 64, height: 64, quality: 85)
         }
         publicURL
       }
       initials
       location
-      name
+      fname
+      lname
       profession
       relocation
       skills
       tools
+    }
+    project: allProjectYaml(sort: { fields: date, order: DESC }) {
+      nodes {
+        project {
+          name
+          logo {
+            childImageSharp {
+              gatsbyImageData(layout: FIXED, width: 64, height: 64, quality: 85)
+            }
+            publicURL
+          }
+          url
+        }
+        name
+        date
+        technologies
+        description
+      }
+    }
+    job: allJobYaml(sort: { fields: fromDate, order: DESC }) {
+      nodes {
+        company {
+          name
+          logo {
+            childImageSharp {
+              gatsbyImageData(layout: FIXED, width: 64, height: 64, quality: 85)
+            }
+            publicURL
+          }
+          url
+        }
+        jobTitle
+        fromDate
+        toDate
+        technologies
+        description
+      }
     }
     social: allSocialYaml(filter: { url: { ne: null } }) {
       nodes {

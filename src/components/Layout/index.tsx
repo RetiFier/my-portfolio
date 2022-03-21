@@ -1,18 +1,18 @@
 import React, { FC, useEffect } from "react";
+import { SocialType } from "../../@types/about";
 import { Footer } from "../Footer";
+import { Header } from "../Header";
 
-export const Layout: FC = ({ children }) => {
-  // const { resolvedTheme } = useTheme();
+type SocialProps = {
+  social: SocialType[];
+};
 
-  // useEffect(() => {
-  // 	const favicon = document.querySelector("link[rel~='icon']") as any;
-  // 	if (favicon) favicon.href = `/assets/favicon_${resolvedTheme}.svg`;
-  // }, [resolvedTheme]);
-
+export const Layout: FC<SocialProps> = ({ children, social }) => {
   return (
     <div className="flex flex-col justify-between min-h-screen">
+      <Header />
       <main>{children}</main>
-      <Footer />
+      <Footer social={social} />
     </div>
   );
 };

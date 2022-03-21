@@ -32,7 +32,11 @@ export const Experience = ({ jobs }: ExperienceProps) => {
               fromDate={fromDate}
               toDate={toDate}
               technologies={technologies}
-            ></Job>
+            >
+              <p className="text-sm antialiased whitespace-normal   tracking-wide text-justify ">
+                {description}
+              </p>
+            </Job>
           </div>
         ),
       )}
