@@ -1,16 +1,19 @@
 import React, { useEffect, useRef } from "react";
 import lottie from "lottie-web/build/player/lottie_light";
+import classNames from "classnames";
 
 type AnimatedProps = {
   animationData: object;
   loop: boolean;
   autoplay: boolean;
+  className?: string;
 };
 
 const AnimatedContainer = ({
   animationData,
   loop,
   autoplay,
+  className,
 }: AnimatedProps) => {
   const animationContainer = useRef<HTMLDivElement>(null);
   const anim = useRef(null);
@@ -25,7 +28,7 @@ const AnimatedContainer = ({
       });
     }
   }, [animationContainer]);
-  return <div ref={animationContainer} />;
+  return <div ref={animationContainer} className={classNames(className)} />;
 };
 
 export default AnimatedContainer;

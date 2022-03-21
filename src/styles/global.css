@@ -11,9 +11,21 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 100;
 }
+.poppinfont-200 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+}
 .poppinfont-400 {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
+}
+.poppinfont-500 {
+  font-family: 'Poppins', sans-serif;
+  font-weight:500;
+}
+.poppinfont-700 {
+  font-family: 'Poppins', sans-serif;
+  font-weight:700;
 }
 ::selection {
   background: #945bf170;
@@ -136,5 +148,53 @@ html.light .headroom--pinned header {
 
   .underlined {
     @apply underlined-light dark:underlined-dark;
+  }
+}
+
+
+#preloader {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: -10%;
+  right: -10%;
+  height: 0;
+  margin-left: calc(100vw - 100%);
+  overflow-x: hidden;
+}
+
+&.preloader_active {
+  height: 100vh;
+  overflow-y: hidden;
+
+  #preloader {
+    height: auto;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #27135c;
+    z-index: 9999;
+    display: flex;
+    overflow: hidden;
+  }
+}
+
+&.preloader_ready {
+  height: auto;
+  overflow-y: auto;
+
+  #preloader {
+    animation: preloaderLeaving 0.5s forwards;
+
+    @keyframes preloaderLeaving {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
   }
 }

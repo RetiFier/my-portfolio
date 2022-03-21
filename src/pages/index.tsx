@@ -5,7 +5,6 @@ import { Footer } from "../components/Footer";
 import { Layout } from "../components/Layout";
 import ThemeContextProvider from "../context/ThemeContextProvider";
 import { About } from "./About";
-import "../styles/global.css";
 
 // markup
 const IndexPage = ({ data }: AboutDataType) => {

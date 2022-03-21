@@ -13,7 +13,6 @@ const Job: FC<Omit<JobType, "description">> = ({
   technologies,
   children,
 }) => {
-  console.log(company.logo);
   return (
     <Box>
       <div className="flex gap-4 items-start md:items-center">

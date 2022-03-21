@@ -18,9 +18,9 @@ export interface AboutProps {
 export const About = ({ profile, job, project }: AboutProps) => {
   return (
     <Container>
-      <h1 className="text-3xl md:text-5xl lg:text-6xl mt-8  poppinfont-400  ">
+      <h1 className="text-3xl md:text-5xl lg:text-6xl mt-8  poppinfont-200  ">
         Hey, I&apos;m&nbsp;
-        <span className="uppercase">{profile.fname}</span>
+        <span className="poppinfont-500 uppercase">{profile.fname}</span>
         <span className="poppinfont-100 uppercase">{profile.lname}</span>
       </h1>
       <h2 className=" headline font-bold text-xl md:text-2xl mt-2">
@@ -50,7 +50,7 @@ export const About = ({ profile, job, project }: AboutProps) => {
 
       <div className="flex justify-center mt-8">
         <Button
-          href="/cv-2021.pdf"
+          href="/resume.pdf"
           download={true}
           className="group flex gap-2 whitespace-nowrap"
         >
