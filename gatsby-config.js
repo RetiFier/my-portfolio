@@ -1,7 +1,11 @@
 /** @type {import('gatsby').GatsbyConfig} */
 module.exports = {
   siteMetadata: {
-    title: ``,
+    description: "Personal page of Reti Fier",
+    locale: "en",
+    title: "Reti Fier",
+    author: "Reti Fier",
+    name: "Reti Fier Portfolio",
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
@@ -15,6 +19,12 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/`],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
