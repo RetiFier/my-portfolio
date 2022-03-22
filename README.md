@@ -24,3 +24,5 @@
 ** Edit Content.**
 
 ##### you can change the website's content by editing .yaml files and adding images in image folder inside content/ directory:
+
+##### for the resume file you can add that in static directory

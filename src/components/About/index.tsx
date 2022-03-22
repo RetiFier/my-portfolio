@@ -2,12 +2,12 @@ import React, { FC, useEffect } from "react";
 import { ProfileType } from "../../@types/about";
 import { JobType } from "../../@types/job";
 import { ProjectType } from "../../@types/project";
-import { Button } from "../../components/Button";
-import { Container } from "../../components/Container";
-import { Experience } from "../../components/Experience";
-import { Project } from "../../components/Project";
-import { Title } from "../../components/Title";
-import { Typed } from "../../components/Typed";
+import { Button } from "../Button";
+import { Container } from "../Container";
+import { Experience } from "../Experience";
+import { Project } from "../Project";
+import { Title } from "../Title";
+import { Typed } from "../Typed";
 import { BsFillCloudDownloadFill } from "react-icons/bs";
 export interface AboutProps {
   profile: ProfileType;
@@ -50,7 +50,7 @@ export const About = ({ profile, job, project }: AboutProps) => {
 
       <div className="flex justify-center mt-8">
         <Button
-          href="/resume.pdf"
+          href="resume.pdf"
           download={true}
           className="group flex gap-2 whitespace-nowrap"
         >
