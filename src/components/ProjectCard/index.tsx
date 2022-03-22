@@ -48,7 +48,7 @@ export const ProjectCard = ({
                 <strong>Technologies Usage: </strong>
                 {technologies.join(", ")}
               </span>
-              <div className="w-14 h-8 pb-3 ">
+              <div className="w-16 h-8 pt-4 ">
                 <AnimatedContainer
                   animationData={gitHubAnimation}
                   autoplay
@@ -57,6 +57,9 @@ export const ProjectCard = ({
               </div>
             </div>
           </div>
+        </div>
+        <div className="flex w-5/6 text-justify whitespace-normal">
+          <span className="text-sm">{description}</span>
         </div>
       </a>
     </Box>

@@ -2,7 +2,7 @@
 - project:
     name: OP2
     logo: images/op2.png
-    url: https://github.com/aungkoman/se2020
+    url: https://github.com/RetiFier/op2
   name: ONE PAGE PROTOTYPE (OP2)
   date: Sep 2020
   technologies:
@@ -10,7 +10,7 @@
     - Electron
     - Java Script
     - CSS
-  description: As a young bloke with an immense interest in information technology, I enrolled at the University of Lithan to pursue a career in the web/application development industry. Combined with the experience I had and my endless exploration into the heart of technology, I wanted to learn more and took a gap to utilize it. In that brief period, I was able to successfully launch and develop an entire project . With all the wondering of what’s going to be next, the journey awaits.
+  description: A prototyping multiplatform application (windows/mac/linux) built using JS and its relevant frameworks and libarries. Made with the purpose of creating single webpages in a matter of minutes, one can expect codes to be generated after customising at their choice. with the functionality include the ability to import and export codes
 - project:
     name: SE2020
     logo:
@@ -21,4 +21,4 @@
     - React
     - Styled Component
     - Redux
-  description: award-winning managed product website alongside two other team members under the title of SSDLC (Secure Software Development Life Cycle). I contributed to this project as a front-end developer, utilizing React and Redux.
+  description: award-winning manage-product website alongside two other team members under the title of SSDLC (Secure Software Development Life Cycle). I contributed this project as a front-end developer, utilizing React and Redux.
