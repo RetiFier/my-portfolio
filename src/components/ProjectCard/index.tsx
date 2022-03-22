@@ -5,7 +5,8 @@ import { ProjectType } from "../../@types/project";
 import { Box } from "../Box";
 import AnimatedContainer from "../Animations/AnimatedContainer";
 import gitHubAnimation from "../../animationsContent/github.json";
-import { Link } from "gatsby";
+import developAnimation from "../../animationsContent/develop.json";
+
 export const ProjectCard = ({
   project,
   name,
@@ -22,11 +23,18 @@ export const ProjectCard = ({
         className="underlined relative"
       >
         <div className="flex gap-4 items-center">
-          {project.logo && (
+          {project.logo ? (
             <GatsbyImage
               image={project.logo.childImageSharp.gatsbyImageData}
               alt={project.name}
               className="rounded-md"
+            />
+          ) : (
+            <AnimatedContainer
+              animationData={developAnimation}
+              autoplay
+              loop
+              className="rounded-md w-20"
             />
           )}
           <div className="w-full mb-2">

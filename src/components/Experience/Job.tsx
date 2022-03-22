@@ -4,7 +4,8 @@ import { format } from "date-fns";
 import { JobType } from "../../@types/job";
 import { Box } from "../Box";
 import { GatsbyImage } from "gatsby-plugin-image";
-
+import developAnimation from "../../animationsContent/develop.json";
+import AnimatedContainer from "../Animations/AnimatedContainer";
 const Job: FC<Omit<JobType, "description">> = ({
   company,
   jobTitle,
@@ -16,11 +17,18 @@ const Job: FC<Omit<JobType, "description">> = ({
   return (
     <Box>
       <div className="flex gap-4 items-start md:items-center">
-        {company.logo && (
+        {company.logo ? (
           <GatsbyImage
             image={company.logo.childImageSharp.gatsbyImageData}
             alt={company.name}
             className="rounded-md"
+          />
+        ) : (
+          <AnimatedContainer
+            animationData={developAnimation}
+            autoplay
+            loop
+            className="rounded-md w-20"
           />
         )}
         <div className="w-full mb-2">
