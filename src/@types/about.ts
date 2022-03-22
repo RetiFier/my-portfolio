@@ -8,6 +8,7 @@ export interface AboutDataType {
     job: { nodes: JobType[] };
     project: { nodes: ProjectType[] };
   };
+  location: Location;
 }
 export interface SocialType {
   name:

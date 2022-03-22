@@ -8,9 +8,10 @@ import { SEO } from "../Seo";
 
 type SocialProps = {
   social: SocialType[];
+  location: Location;
 };
 
-export const Layout: FC<SocialProps> = ({ children, social }) => {
+export const Layout: FC<SocialProps> = ({ children, social, location }) => {
   const isHome = location.pathname === "/";
   const [isLoading, setIsLoading] = useState(isHome);
   useEffect(() => {

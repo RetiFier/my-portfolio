@@ -7,11 +7,11 @@ import ThemeContextProvider from "../context/ThemeContextProvider";
 import { About } from "./About";
 
 // markup
-const IndexPage = ({ data }: AboutDataType) => {
+const IndexPage = ({ data, location }: AboutDataType) => {
   const { profile, social, job, project } = data;
   return (
     <ThemeContextProvider>
-      <Layout social={social.nodes}>
+      <Layout social={social.nodes} location={location}>
         <About profile={profile} job={job.nodes} project={project.nodes} />
       </Layout>
     </ThemeContextProvider>
