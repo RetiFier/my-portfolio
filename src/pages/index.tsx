@@ -4,7 +4,7 @@ import { AboutDataType } from "../@types/about";
 import { Footer } from "../components/Footer";
 import { Layout } from "../components/Layout";
 import ThemeContextProvider from "../context/ThemeContextProvider";
-import { About } from "./About";
+import { About } from "../components/About";
 
 // markup
 const IndexPage = ({ data, location }: AboutDataType) => {
