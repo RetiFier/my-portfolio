@@ -9,12 +9,12 @@ module.exports = {
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
-    //   {
-    //   resolve: 'gatsby-plugin-google-analytics',
-    //   options: {
-    //     "trackingId": ""
-    //   }
-    // },
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "G-JVTZMNERDB",
+      },
+    },
     "gatsby-plugin-postcss",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",

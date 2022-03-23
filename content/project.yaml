@@ -22,3 +22,16 @@
     - Styled Component
     - Redux
   description: award-winning manage-product website alongside two other team members under the title of SSDLC (Secure Software Development Life Cycle). I contributed this project as a front-end developer, utilizing React and Redux.
+- project:
+    name: Portfolio
+    logo:
+    url: https://github.com/RetiFier/my-portfolio
+  name: Portfolio Website for Developer
+  date: Mar 2022
+  technologies:
+    - React
+    - Gatsby
+    - Tailwind
+    - TypeScript
+    - YAML
+  description: With Gasby and Tailwind, an open source portfoilio template for Developers.
