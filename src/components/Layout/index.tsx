@@ -42,17 +42,18 @@ export const Layout: FC<SocialProps> = ({ children, social, location }) => {
   return (
     <>
       <SEO title="Reti Fier" />
-      <div className="flex flex-col  min-h-screen">
-        {isLoading ? (
+
+      {isLoading ? (
+        <>
           <Loader />
-        ) : (
-          <>
-            <Header />
-            <main>{children}</main>
-            <Footer social={social} />
-          </>
-        )}
-      </div>
+        </>
+      ) : (
+        <div className="flex flex-col  min-h-screen">
+          <Header />
+          <main>{children}</main>
+          <Footer social={social} />
+        </div>
+      )}
     </>
   );
 };
