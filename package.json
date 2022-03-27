@@ -18,11 +18,12 @@
   "dependencies": {
     "classnames": "^2.3.1",
     "gatsby": "^4.9.3",
-    "gatsby-plugin-google-analytics": "^4.9.0",
+    "gatsby-plugin-google-gtag": "^4.10.0",
     "gatsby-plugin-image": "^2.9.1",
     "gatsby-plugin-manifest": "^4.9.1",
     "gatsby-plugin-offline": "^5.10.1",
     "gatsby-plugin-react-helmet": "^5.10.0",
+    "gatsby-plugin-robots-txt": "^1.7.0",
     "gatsby-plugin-sharp": "^4.9.1",
     "gatsby-plugin-sitemap": "^5.9.0",
     "gatsby-source-filesystem": "^4.9.1",

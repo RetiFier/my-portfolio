@@ -25,4 +25,4 @@
 
 - ##### you can change the website's content by editing .yaml files and adding images in image folder inside content/ directory:
 - ##### In the static directory, replace the resume file.
-- ##### Change new GA tracking ID in gatsby-config.js
+- ##### Change new GA tracking ID and optimize id in gatsby-config.js

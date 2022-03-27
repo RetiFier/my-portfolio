@@ -6,15 +6,21 @@ module.exports = {
     title: "Reti Fier",
     author: "Reti Fier",
     name: "Reti Fier Portfolio",
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://retifier.com/`,
   },
   plugins: [
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: "G-JVTZMNERDB",
+        trackingIds: ["G-JVTZMNERDB"],
+        gtagConfig: {
+          optimize_id: "OPT-W2TVR6F",
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
       },
     },
+    "gatsby-plugin-robots-txt",
     "gatsby-plugin-postcss",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",

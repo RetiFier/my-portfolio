@@ -42,15 +42,15 @@ export const Layout: FC<SocialProps> = ({ children, social, location }) => {
   return (
     <>
       <SEO title="Reti Fier" />
-      <div className="flex flex-col justify-between min-h-screen">
+      <div className="flex flex-col  min-h-screen">
         {isLoading ? (
           <Loader />
         ) : (
-          <div className="ease-in-out duration-300 ">
+          <>
             <Header />
             <main>{children}</main>
             <Footer social={social} />
-          </div>
+          </>
         )}
       </div>
     </>
