@@ -44,9 +44,7 @@ export const Layout: FC<SocialProps> = ({ children, social, location }) => {
       <SEO title="Reti Fier" />
 
       {isLoading ? (
-        <>
-          <Loader />
-        </>
+        <Loader />
       ) : (
         <div className="flex flex-col  min-h-screen">
           <Header />

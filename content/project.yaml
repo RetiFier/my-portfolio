@@ -35,3 +35,16 @@
     - TypeScript
     - YAML
   description: With Gasby and Tailwind, an open source portfoilio template for Developers.
+- project:
+    name: A website that helps dog owners find dog sitters
+    logo:
+    url: https://github.com/hatchways/team-cedar
+  name: Pet Sitter
+  date: Mar 2022
+  technologies:
+    - React
+    - Node JS
+    - Express JS
+    - TypeScript
+    - MongoDB
+  description: I was involved in building a  website that makes it easier for dog owners to find a dog sitter along with the team. For that project, my role was full-stack developer. I had valuable experience both from the project itself and the experiences shared by our team lead.
