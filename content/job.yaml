@@ -20,7 +20,7 @@
 - company:
     name: WunderTek
     logo: images/wundertek.jpg
-    url:
+    url: wundertek.tech
   jobTitle: Full Stack Developer
   fromDate: May 2020
   toDate: Aug 2021
@@ -37,3 +37,20 @@
     The back-end part was done effectively with Express JS along with MongoDB for
     database purposes. Plus, I've used testing libraries in both of the following
     role.
+- company:
+    name: WunderTek
+    logo: images/wundertek.jpg
+    url: wundertek.tech
+  jobTitle: Freelance Full Stack Developer
+  fromDate: Apr 2022
+  toDate:
+  technologies:
+    - React
+    - Next JS
+    - Redux
+    - Express JS
+    - REST API
+    - MongoDB
+  description:
+    I am working freelance with WunderTek implementing various features for them
+    for both frontend and backend project.
