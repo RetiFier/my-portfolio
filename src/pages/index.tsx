@@ -57,7 +57,7 @@ export const query = graphql`
         description
       }
     }
-    job: allJobYaml(sort: { fields: fromDate, order: DESC }) {
+    job: allJobYaml {
       nodes {
         company {
           name

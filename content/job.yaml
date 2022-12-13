@@ -38,6 +38,38 @@
     database purposes. Plus, I've used testing libraries in both of the following
     role.
 - company:
+    name: Mehr Capital
+    logo: images/mehr.jpeg
+    url: https://www.linkedin.com/company/mehrcapital/
+  jobTitle: Full Stack Developer
+  fromDate: Aug 2022
+  toDate: Nov 2022
+  technologies:
+    - React
+    - TypeScript
+    - Tailwind CSS
+    - Next JS
+    - Redux
+    - Express JS
+    - REST API
+    - Moongoose
+  description:
+    Developed a cryptocurrency price website that used a single codebase to
+    handle, analyze, and show data for numerous cryptocurrencies across many
+    domains.
+    Created a Node.js web scraping program to assist the firm in downloading
+    public data, including over 10,000 company descriptions and live stock prices,
+    enriching internal data, and handling, analyzing, and displaying data on the
+    frontend using Next.js.
+    Ensure the applications’ security so that they can interact with multiple APIs
+    and databases safely.
+    Managed time-sensitive updates, such as changing content and upgrading
+    databases.
+    Completed all phases of planning, developing, and debugging web applications
+    and software precisely in accordance with the requirements laid out by the CTO
+    and CMO
+
+- company:
     name: WunderTek
     logo: images/wundertek.jpg
     url: wundertek.tech

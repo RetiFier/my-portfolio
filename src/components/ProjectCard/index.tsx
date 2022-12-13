@@ -20,7 +20,7 @@ export const ProjectCard = ({
         href={project.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="underlined relative"
+        className="underlined relative dark"
       >
         <div className="flex gap-4 items-center">
           {project.logo ? (
