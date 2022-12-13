@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import { Button } from "../components/Button";
+import { SEO } from "../components/Seo";
 
 // styles
 const pageStyles = {
@@ -26,6 +27,7 @@ const codeStyles = {
 const NotFoundPage = () => {
   return (
     <main style={pageStyles}>
+      <SEO title="Not Found" />
       <div className="flex flex-col items-center">
         <h1 className="font-bold text-blue-600 text-9xl">404</h1>
 
