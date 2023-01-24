@@ -20,7 +20,7 @@
 - company:
     name: WunderTek
     logo: images/wundertek.jpg
-    url: wundertek.tech
+    url: https://wundertek.tech/
   jobTitle: Full Stack Developer
   fromDate: May 2020
   toDate: Aug 2021
@@ -72,7 +72,7 @@
 - company:
     name: WunderTek
     logo: images/wundertek.jpg
-    url: wundertek.tech
+    url: https://wundertek.tech/
   jobTitle: Freelance Full Stack Developer
   fromDate: Apr 2022
   toDate:
@@ -84,5 +84,5 @@
     - REST API
     - MongoDB
   description:
-    I am working freelance with WunderTek implementing various features for them
-    for both frontend and backend project.
+    As a freelance developer, I am currently working with WunderTek on a variety of projects, both frontend and backend. I am responsible for implementing new features,
+    and ensuring that they are delivered on time and to the client's satisfaction.
