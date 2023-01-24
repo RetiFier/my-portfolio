@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from "react";
 
 import { SocialType } from "../../@types/about";
 import { Footer } from "../Footer";
+import { Adsense } from "../GoogleAdsense";
 import { Header } from "../Header";
 import { Loader } from "../Loader";
 import { SEO } from "../Seo";
@@ -47,6 +48,7 @@ export const Layout: FC<SocialProps> = ({ children, social, location }) => {
         <Loader />
       ) : (
         <div className="flex flex-col  min-h-screen">
+          <Adsense />
           <Header />
           <main>{children}</main>
           <Footer social={social} />

@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 export function SEO({
-  description = "",
+  description = "Personal Website of JavaScript Developer",
   lang = "en",
   meta = [],
   title,
