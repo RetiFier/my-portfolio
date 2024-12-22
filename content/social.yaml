@@ -1,35 +1,7 @@
 - name: linkedin
   url: https://www.linkedin.com/in/aung-naing-win-a07206165/
 
-- name: twitter
-  url:
-
-- name: facebook
-  url:
-
-- name: instagram
-  url:
-
-- name: dribbble
-  url:
-
-- name: behance
-  url:
-
-- name: producthunt
-  url:
 
 - name: github
   url: https://github.com/retifier
 
-- name: goodreads
-  url:
-
-- name: xing
-  url:
-
-- name: youtube
-  url:
-
-- name: medium
-  url:

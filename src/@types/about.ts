@@ -1,5 +1,6 @@
 import { JobType } from "./job";
 import { ProjectType } from "./project";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 
 export interface AboutDataType {
   data: {
@@ -10,6 +11,7 @@ export interface AboutDataType {
   };
   location: Location;
 }
+
 export interface SocialType {
   name:
     | "behance"
@@ -25,10 +27,23 @@ export interface SocialType {
     | "youtube";
   url: string;
 }
+
 export interface ProfileType {
   about: string;
+  company: string;
+  for_hire: boolean;
+  image: {
+    childImageSharp: {
+      gatsbyImageData: IGatsbyImageData;
+    };
+    publicURL: string;
+  };
+  initials: string;
+  location: string;
   fname: string;
   lname: string;
   profession: string;
+  relocation: boolean;
   skills: string[];
+  tools: string[];
 }

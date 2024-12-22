@@ -1,5 +1,36 @@
 ---
 - project:
+    name: Reti Blog
+    logo:
+    url: https://github.com/RetiFier/superbase-blog
+  name: Reti Blog
+  date: Dec 2024
+  technologies:
+    - Next.js 14
+    - Supabase
+    - Tailwind CSS
+    - shadcn/ui
+  description: 
+    A modern blogging platform built with Next.js 14, Supabase, and Tailwind CSS. 
+    Features include a rich text editor, categories, tags, view analytics, and a comments system. 
+    Supports dark/light themes, user roles, and profile management with responsive design.
+
+- project:
+    name: SeedSafer
+    logo:
+    url: https://github.com/RetiFier/seedsafer
+  name: SeedSafer - A Mobile App for Secure Seed Storage
+  date: Mar 2023
+  technologies:
+    - React Native
+    - TypeScript
+    - Ethereum API
+    - Web3.js
+  description: 
+    A React Native and TypeScript mobile app designed to securely store twelve-word recovery seeds, derive private keys, and display ETH balances and addresses. 
+    Focused on blockchain integration and private key management with secure, user-friendly interfaces.
+
+- project:
     name: OP2
     logo: images/op2.png
     url: https://github.com/RetiFier/op2
@@ -8,9 +39,13 @@
   technologies:
     - React
     - Electron
-    - Java Script
+    - JavaScript
     - CSS
-  description: A prototyping multiplatform application (windows/mac/linux) built using JS and its relevant frameworks and libarries. Made with the purpose of creating single webpages in a matter of minutes, one can expect codes to be generated after customising at their choice. with the functionality include the ability to import and export codes
+  description: 
+    A prototyping multiplatform application (Windows/Mac/Linux) built using JavaScript and relevant frameworks. 
+    Designed to create single webpages quickly, generating code based on user customization. 
+    Includes import/export functionality for code.
+
 - project:
     name: SE2020
     logo:
@@ -19,9 +54,12 @@
   date: Nov 2020
   technologies:
     - React
-    - Styled Component
+    - Styled Components
     - Redux
-  description: award-winning manage-product website alongside two other team members under the title of SSDLC (Secure Software Development Life Cycle). I contributed this project as a front-end developer, utilizing React and Redux.
+  description: 
+    Award-winning product management website developed with a team under SSDLC (Secure Software Development Life Cycle). 
+    Contributed as a front-end developer using React and Redux.
+
 - project:
     name: Portfolio
     logo:
@@ -31,20 +69,24 @@
   technologies:
     - React
     - Gatsby
-    - Tailwind
+    - Tailwind CSS
     - TypeScript
     - YAML
-  description: With Gasby and Tailwind, an open source portfoilio template for Developers.
+  description: 
+    An open-source developer portfolio template built with Gatsby and Tailwind CSS.
+
 - project:
-    name: A website that helps dog owners find dog sitters
+    name: Pet Sitter
     logo:
     url: https://github.com/hatchways/team-cedar
-  name: Pet Sitter
+  name: A website that helps dog owners find dog sitters
   date: Mar 2022
   technologies:
     - React
-    - Node JS
+    - Node.js
     - Express JS
     - TypeScript
     - MongoDB
-  description: I was involved in building a  website that makes it easier for dog owners to find a dog sitter along with the team. For that project, my role was full-stack developer. I had valuable experience both from the project itself and the experiences shared by our team lead.
+  description: 
+    Collaborated on a platform to help dog owners find pet sitters. 
+    Worked as a full-stack developer, gaining valuable experience from both technical contributions and mentorship from the team lead.

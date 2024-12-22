@@ -14,9 +14,10 @@
     - Express JS
     - REST API
   description:
-    Sccessfully developed and produced Andriod + Web applications based
-    on React , React Native and ExpressJS.Collaborated with a team to manage a PoS
-    system using React and NextJS
+    Successfully developed and produced Android and web applications based
+    on React, React Native, and Express JS. Collaborated with a team to manage a PoS
+    system using React and Next JS.
+    
 - company:
     name: WunderTek
     logo: images/wundertek.jpg
@@ -32,11 +33,10 @@
     - REST API
     - MongoDB
   description:
-    I've experience in working as both front-end and back-end project.
-    In that front-end, i've built appealing UI design in harmony with Figma blueprints.
-    The back-end part was done effectively with Express JS along with MongoDB for
-    database purposes. Plus, I've used testing libraries in both of the following
-    role.
+    Worked on both front-end and back-end projects. Developed appealing UI designs in harmony with Figma blueprints. 
+    The back-end was implemented using Express JS and MongoDB for database management. 
+    Utilized testing libraries for comprehensive quality assurance in all roles.
+
 - company:
     name: Mehr Capital
     logo: images/mehr.jpeg
@@ -52,30 +52,26 @@
     - Redux
     - Express JS
     - REST API
-    - Moongoose
+    - Mongoose
   description:
-    Developed a cryptocurrency price website that used a single codebase to
-    handle, analyze, and show data for numerous cryptocurrencies across many
+    Developed a cryptocurrency price website with a single codebase to
+    handle, analyze, and display data for numerous cryptocurrencies across multiple
     domains.
-    Created a Node.js web scraping program to assist the firm in downloading
+    Created a Node.js web scraping program to assist in downloading
     public data, including over 10,000 company descriptions and live stock prices,
-    enriching internal data, and handling, analyzing, and displaying data on the
-    frontend using Next.js.
-    Ensure the applications’ security so that they can interact with multiple APIs
-    and databases safely.
-    Managed time-sensitive updates, such as changing content and upgrading
-    databases.
-    Completed all phases of planning, developing, and debugging web applications
-    and software precisely in accordance with the requirements laid out by the CTO
-    and CMO
-
+    enriching internal datasets. Data was handled and displayed using Next.js.
+    Ensured application security to safely interact with APIs
+    and databases.
+    Managed time-sensitive updates, including content changes and database upgrades.
+    Participated in planning, development, and debugging phases, following CTO and CMO requirements.
+    
 - company:
     name: WunderTek
     logo: images/wundertek.jpg
     url: https://wundertek.tech/
   jobTitle: Freelance Full Stack Developer
   fromDate: Apr 2022
-  toDate:
+  toDate: Present
   technologies:
     - React
     - Next JS
@@ -84,5 +80,50 @@
     - REST API
     - MongoDB
   description:
-    As a freelance developer, I am currently working with WunderTek on a variety of projects, both frontend and backend. I am responsible for implementing new features,
-    and ensuring that they are delivered on time and to the client's satisfaction.
+    As a freelance developer, collaborated with WunderTek on a variety of projects, handling both frontend and backend tasks. 
+    Responsible for implementing new features and ensuring timely delivery to meet client satisfaction.
+
+
+
+- company:
+    name: Veloce (VEXT Crypto)
+    logo: images/veloce.png
+    url: https://www.veloce.gg/vext/
+  jobTitle: Freelance Blockchain Developer
+  fromDate: Aug 2023
+  toDate: Jan 2024
+  technologies:
+    - Node.js
+    - TypeScript
+    - Python
+    - Web3.js
+    - Ethers.js
+    - Solidity
+    - MongoDB
+  description:
+    Worked with the Treasurer team to provide analytics on blockchain transactions, automate airdrop processes, and develop notification bots for tracking transactions. 
+    Built scripts to analyze wallet activities and detect irregularities. 
+    Created automation tools to streamline token distribution and enhance transaction monitoring.
+    
+- company:
+    name: Deal.ai
+    logo: images/dealai.png
+    url: https://www.deal.ai/
+  jobTitle: Full Stack Developer
+  fromDate: Jan 2023
+  toDate: Present
+  technologies:
+    - React
+    - Next JS
+    - TypeScript
+    - Tailwind CSS
+    - Node.js
+    - Express JS
+    - REST API
+    - MongoDB
+    - GraphQL
+  description:
+    Contributed to building Deal.ai’s platform from the ground up, developing both frontend and backend systems. 
+    Implemented core features including AI-driven content generation, API integrations, and custom web applications. 
+    Played a key role in setting up the architecture, ensuring scalability, and enhancing user experience across the platform.
+
