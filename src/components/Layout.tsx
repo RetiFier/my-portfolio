@@ -28,14 +28,14 @@ export const Layout: React.FC<LayoutProps> = ({ children, social, location }) =>
       {/* Gradient Orbs */}
       <div className="fixed inset-0 pointer-events-none">
         <div 
-          className="absolute -top-40 -right-40 w-96 h-96 rounded-full"
+          className="absolute -top-20 -right-20 md:-top-40 md:-right-40 w-48 h-48 md:w-96 md:h-96 rounded-full"
           style={{
             background: 'radial-gradient(circle, rgba(122, 162, 247, 0.2) 0%, rgba(122, 162, 247, 0) 70%)',
             filter: 'blur(40px)',
           }}
         />
         <div 
-          className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full"
+          className="absolute -bottom-20 -left-20 md:-bottom-40 md:-left-40 w-48 h-48 md:w-96 md:h-96 rounded-full"
           style={{
             background: 'radial-gradient(circle, rgba(187, 154, 247, 0.2) 0%, rgba(187, 154, 247, 0) 70%)',
             filter: 'blur(40px)',
@@ -44,15 +44,15 @@ export const Layout: React.FC<LayoutProps> = ({ children, social, location }) =>
       </div>
 
       {/* Terminal Lines */}
-      <div className="fixed top-0 left-8 w-px h-full bg-gradient-to-b from-transparent via-[#7aa2f7] to-transparent opacity-20" />
-      <div className="fixed top-0 right-8 w-px h-full bg-gradient-to-b from-transparent via-[#7aa2f7] to-transparent opacity-20" />
+      <div className="fixed top-0 left-2 md:left-8 w-px h-full bg-gradient-to-b from-transparent via-[#7aa2f7] to-transparent opacity-20" />
+      <div className="fixed top-0 right-2 md:right-8 w-px h-full bg-gradient-to-b from-transparent via-[#7aa2f7] to-transparent opacity-20" />
 
       {/* Header Controls */}
       <motion.div 
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="fixed top-4 right-4 z-50 flex items-center space-x-4 px-4 py-2 rounded-lg"
+        className="fixed top-2 right-2 md:top-4 md:right-4 z-50 flex items-center space-x-2 md:space-x-4 px-2 md:px-4 py-2 rounded-lg"
         style={{
           background: 'rgba(31, 35, 53, 0.8)',
           backdropFilter: 'blur(8px)',
@@ -65,7 +65,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, social, location }) =>
       </motion.div>
 
       {/* Main Content */}
-      <main className="relative z-10 py-12 px-8">
+      <main className="relative z-10 py-6 md:py-12 px-4 md:px-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
