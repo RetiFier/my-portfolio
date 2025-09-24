@@ -1,4 +1,5 @@
 import "./src/styles/global.css";
+import "./src/styles/accessibility.css";
 
 export const onClientEntry = () => {
   const darkMode = localStorage.getItem('theme') === 'dark' || 

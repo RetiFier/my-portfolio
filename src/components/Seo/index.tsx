@@ -7,6 +7,7 @@ export function SEO({
   lang = "en",
   meta = [],
   title,
+  keywords = "",
 }: SEOProps) {
   const { site } = useStaticQuery<QueryTypes>(SEOStaticQuery);
 
@@ -53,6 +54,7 @@ export function SEO({
           name: `twitter:description`,
           content: metaDescription,
         },
+        ...(keywords ? [{ name: `keywords`, content: keywords }] : []),
       ].concat(meta)}
     />
   );
@@ -64,6 +66,7 @@ type SEOProps = {
   lang?: string;
   meta?: Meta;
   title: string;
+  keywords?: string;
 };
 
 type Meta = ConcatArray<PropertyMetaObj | NameMetaObj>;
@@ -87,6 +90,9 @@ type QueryTypes = {
     };
   };
 };
+
+// Export alias for compatibility
+export const Seo = SEO;
 
 // Queries
 const SEOStaticQuery = graphql`
