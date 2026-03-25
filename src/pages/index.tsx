@@ -453,40 +453,65 @@ const Hero = ({ profile }: { profile: ProfileType }) => {
 
 // Statement Section
 const Statement = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], [80, -80]);
+
   return (
-    <section className="min-h-[70vh] flex items-center py-20 sm:py-28 bg-[#141416] relative overflow-hidden">
-      <div className="max-w-4xl sm:max-w-5xl md:max-w-6xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
+    <section ref={sectionRef} className="min-h-screen flex items-center py-20 sm:py-32 bg-[#141416] relative overflow-hidden">
+      {/* Parallax glow */}
+      <motion.div
+        className="absolute top-1/3 right-0 w-[50vw] h-[50vw] rounded-full bg-[#3b82f6] opacity-[0.015] blur-3xl pointer-events-none"
+        style={{ y: bgY }}
+      />
+
+      <div className="max-w-4xl sm:max-w-5xl md:max-w-6xl mx-auto px-4 sm:px-6 md:px-8 relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-200px" }}
           transition={{ duration: 1 }}
         >
-          <p className="text-[9px] sm:text-[10px] tracking-[0.4em] text-[#6b7280] uppercase mb-10 sm:mb-12">
+          <p className="text-[9px] sm:text-[10px] tracking-[0.4em] text-[#6b7280] uppercase mb-10 sm:mb-14">
             How I Think
           </p>
 
-          <div className="space-y-12 sm:space-y-16 md:space-y-20">
-            <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.3 }}
-            >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-normal leading-[1.1] mb-8 sm:mb-10">
-                Most code gets written once<br />
-                and read hundreds of times.
-              </h2>
-            </motion.div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-normal leading-[1.1] mb-6 sm:mb-8">
+            Most code gets written once<br />
+            and read hundreds of times.
+          </h2>
+
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            className="w-16 h-px bg-[#3b82f6] mb-10 sm:mb-14 origin-left"
+          />
+
+          <div className="space-y-8 sm:space-y-10 max-w-3xl">
+            <p className="text-xl sm:text-2xl md:text-3xl text-[#6b7280]">
+              I build for readers.
+            </p>
 
             <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="space-y-6"
             >
-              <p className="text-xl sm:text-2xl md:text-3xl text-[#6b7280]">
-                I build for readers.
+              <p className="text-base sm:text-lg text-[#6b7280] leading-relaxed">
+                Problems have contexts, not solutions. Every project starts with questions:
+                What's actually broken? Who feels the pain? What happens if this fails in six months?
+                The answers shape the architecture, not the other way around.
+              </p>
+              <p className="text-base sm:text-lg text-[#6b7280] leading-relaxed">
+                Technology stacks change. The fundamentals don't.
+                The stack is just a tool. The craft is understanding tradeoffs.
               </p>
             </motion.div>
           </div>
@@ -498,6 +523,13 @@ const Statement = () => {
 
 // Philosophy Section
 const Philosophy = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], [60, -60]);
+
   const items = [
     {
       number: "01",
@@ -517,7 +549,13 @@ const Philosophy = () => {
   ];
 
   return (
-    <section className="min-h-[70vh] flex items-center py-20 sm:py-28 relative overflow-hidden">
+    <section ref={sectionRef} className="min-h-[70vh] flex items-center py-20 sm:py-28 relative overflow-hidden">
+      {/* Parallax glow */}
+      <motion.div
+        className="absolute bottom-0 left-0 w-[40vw] h-[40vw] rounded-full bg-[#3b82f6] opacity-[0.015] blur-3xl pointer-events-none"
+        style={{ y: bgY }}
+      />
+
       <div className="max-w-5xl sm:max-w-6xl md:max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 80 }}
@@ -576,6 +614,25 @@ const Philosophy = () => {
         </div>
       </div>
     </section>
+  );
+};
+
+// Section Divider
+const SectionDivider = () => {
+  return (
+    <motion.div
+      className="flex justify-center items-center py-4 sm:py-6"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 1 }}
+    >
+      <div className="flex items-center gap-3 sm:gap-4">
+        <div className="w-8 sm:w-16 h-px bg-gradient-to-r from-transparent to-[#1e1e1e]" />
+        <div className="w-1.5 h-1.5 rounded-full border border-[#3b82f6]/40" />
+        <div className="w-8 sm:w-16 h-px bg-gradient-to-l from-transparent to-[#1e1e1e]" />
+      </div>
+    </motion.div>
   );
 };
 
@@ -834,6 +891,13 @@ const Skills = ({ skills, tools }: { skills: string[]; tools: string[] }) => {
 
 // Drive Section
 const Drive = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], [60, -60]);
+
   const drives = [
     {
       title: "Curiosity over certainty",
@@ -850,7 +914,13 @@ const Drive = () => {
   ];
 
   return (
-    <section className="min-h-[70vh] py-20 sm:py-28 bg-[#0f0f0f] relative overflow-hidden">
+    <section ref={sectionRef} className="min-h-[70vh] py-20 sm:py-28 bg-[#0f0f0f] relative overflow-hidden">
+      {/* Parallax glow */}
+      <motion.div
+        className="absolute top-1/4 right-0 w-[45vw] h-[45vw] rounded-full bg-[#6366f1] opacity-[0.012] blur-3xl pointer-events-none"
+        style={{ y: bgY }}
+      />
+
       <div className="max-w-5xl sm:max-w-6xl mx-auto px-4 sm:px-6 md:px-8 w-full relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 80 }}
@@ -895,9 +965,21 @@ const Drive = () => {
 const Closing = ({ social, profile }: { social: SocialType[]; profile: ProfileType }) => {
   const firstName = profile.fname.toUpperCase();
   const lastName = profile.lname.toUpperCase();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const glowY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   return (
-    <section id="contact" className="min-h-[70vh] flex items-center py-20 sm:py-28 bg-[#0f0f0f] relative overflow-hidden">
+    <section ref={sectionRef} id="contact" className="min-h-[70vh] flex items-center py-20 sm:py-28 bg-[#0f0f0f] relative overflow-hidden">
+      {/* Parallax glow */}
+      <motion.div
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[40vw] h-[40vw] rounded-full bg-[#3b82f6] opacity-[0.02] blur-3xl pointer-events-none"
+        style={{ y: glowY }}
+      />
+
       <div className="max-w-4xl sm:max-w-5xl mx-auto px-4 sm:px-6 md:px-8 w-full text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 80 }}
@@ -1024,10 +1106,13 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
       {started && (
         <main id="main-content" className="min-h-screen">
           <Hero profile={profile} />
+          <SectionDivider />
           <Statement />
+          <SectionDivider />
           <Philosophy />
           <Projects projects={projects} />
           <Experience jobs={jobs} />
+          <SectionDivider />
           <Skills skills={profile.skills} tools={profile.tools} />
           <Drive />
           <Closing social={social} profile={profile} />
