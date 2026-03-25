@@ -46,4 +46,5 @@ export interface ProfileType {
   relocation: boolean;
   skills: string[];
   tools: string[];
+  email?: string;
 }

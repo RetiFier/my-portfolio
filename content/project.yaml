@@ -11,15 +11,15 @@
     - Tailwind CSS
     - shadcn/ui
   description: 
-    A modern blogging platform built with Next.js 14, Supabase, and Tailwind CSS. 
-    Features include a rich text editor, categories, tags, view analytics, and a comments system. 
-    Supports dark/light themes, user roles, and profile management with responsive design.
+    Most blogging platforms are overbuilt or underpowered. I built Reti Blog to find the middle ground—fast, focused on writing, with just enough features to matter. 
+    Real-time analytics, actual dark mode (not just color inversion), and a comment system that doesn't feel like 2010. 
+    It's the blog I wanted to use, so I built it.
 
 - project:
     name: SeedSafer
     logo:
     url: https://github.com/RetiFier/seedsafer
-  name: SeedSafer - A Mobile App for Secure Seed Storage
+  name: SeedSafer
   date: Mar 2023
   technologies:
     - React Native
@@ -27,14 +27,15 @@
     - Ethereum API
     - Web3.js
   description: 
-    A React Native and TypeScript mobile app designed to securely store twelve-word recovery seeds, derive private keys, and display ETH balances and addresses. 
-    Focused on blockchain integration and private key management with secure, user-friendly interfaces.
+    Everyone tells you to write down your seed phrase on paper and hide it. That's terrible advice if you actually use crypto. 
+    SeedSafer exists because I needed a way to store recovery phrases that didn't feel like gambling with my life savings. 
+    The challenge wasn't encryption—it was building something non-technical users would actually trust.
 
 - project:
     name: OP2
     logo: images/op2.png
     url: https://github.com/RetiFier/op2
-  name: ONE PAGE PROTOTYPE (OP2)
+  name: OP2
   date: Sep 2020
   technologies:
     - React
@@ -42,9 +43,9 @@
     - JavaScript
     - CSS
   description: 
-    A prototyping multiplatform application (Windows/Mac/Linux) built using JavaScript and relevant frameworks. 
-    Designed to create single webpages quickly, generating code based on user customization. 
-    Includes import/export functionality for code.
+    Designers shouldn't have to wait for developers to see their ideas in browsers. Developers shouldn't have to rebuild the same landing page components fifty times. 
+    OP2 was my answer to both problems—a desktop app that turns visual mocks into functional code in seconds. 
+    It's rough around the edges, but the concept worked.
 
 - project:
     name: SE2020
@@ -64,7 +65,7 @@
     name: Portfolio
     logo:
     url: https://github.com/RetiFier/my-portfolio
-  name: Portfolio Website for Developer
+  name: This Portfolio
   date: Mar 2022
   technologies:
     - React
@@ -73,13 +74,15 @@
     - TypeScript
     - YAML
   description: 
-    An open-source developer portfolio template built with Gatsby and Tailwind CSS.
+    Portfolios are either template boredom or over-engineered performance disasters. 
+    I built this because I wanted something that felt like a real person, not a LinkedIn profile with animations. 
+    Other developers used it. That's the best validation I could ask for.
 
 - project:
     name: Pet Sitter
     logo:
     url: https://github.com/hatchways/team-cedar
-  name: A website that helps dog owners find dog sitters
+  name: Pet Sitter
   date: Mar 2022
   technologies:
     - React
@@ -89,4 +92,22 @@
     - MongoDB
   description: 
     Collaborated on a platform to help dog owners find pet sitters. 
-    Worked as a full-stack developer, gaining valuable experience from both technical contributions and mentorship from the team lead.
+    Worked as a full-stack developer, gaining valuable experience from both technical contributions and mentorship from team lead.
+
+- project:
+    name: AI Trading System
+    logo:
+    url: 
+  name: AI Trading System
+  date: Feb 2024
+  technologies:
+    - Node.js
+    - TypeScript
+    - OpenAI
+    - OpenRouter
+    - MongoDB
+    - WebSocket
+  description: 
+    Built an AI-powered futures trading bot that analyzes market data in real-time and executes trades based on machine learning models. 
+    Handles multiple trading pairs, risk management algorithms, and automated position sizing. 
+    The system processes thousands of data points per second while maintaining sub-millisecond latency—trading moves fast.

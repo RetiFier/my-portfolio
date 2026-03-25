@@ -14,9 +14,8 @@
     - Express JS
     - REST API
   description:
-    Successfully developed and produced Android and web applications based
-    on React, React Native, and Express JS. Collaborated with a team to manage a PoS
-    system using React and Next JS.
+    First real development job meant learning in public. Built Android apps and web interfaces, figured out that React Native isn't just "web on mobile" when done right, 
+    and managed a point-of-sale system that handled real transactions. Small team, high responsibility—learned more in eight months than four years of tutorials could teach.
     
 - company:
     name: WunderTek
@@ -33,9 +32,9 @@
     - REST API
     - MongoDB
   description:
-    Worked on both front-end and back-end projects. Developed appealing UI designs in harmony with Figma blueprints. 
-    The back-end was implemented using Express JS and MongoDB for database management. 
-    Utilized testing libraries for comprehensive quality assurance in all roles.
+    Full-stack means you own problems end-to-end. I learned this building UIs from Figma specs and the APIs to back them. 
+    Focused on making things actually work together—frontend talks to backend, database schema matches user needs, 
+    tests catch real bugs not just edge cases. Left with a system that handled production traffic from day one.
 
 - company:
     name: Mehr Capital
@@ -54,16 +53,10 @@
     - REST API
     - Mongoose
   description:
-    Developed a cryptocurrency price website with a single codebase to
-    handle, analyze, and display data for numerous cryptocurrencies across multiple
-    domains.
-    Created a Node.js web scraping program to assist in downloading
-    public data, including over 10,000 company descriptions and live stock prices,
-    enriching internal datasets. Data was handled and displayed using Next.js.
-    Ensured application security to safely interact with APIs
-    and databases.
-    Managed time-sensitive updates, including content changes and database upgrades.
-    Participated in planning, development, and debugging phases, following CTO and CMO requirements.
+    Financial data is messy. APIs are incomplete. Time zones break everything. 
+    Built a crypto platform that handled all three—scraped 10,000 company descriptions when APIs failed, 
+    managed real-time price updates across multiple domains, and dealt with the reality that "time-sensitive" means "it breaks at 3 AM on Sunday." 
+    Learned that production isn't about writing perfect code—it's about writing code you can fix quickly.
     
 - company:
     name: WunderTek
@@ -80,8 +73,9 @@
     - REST API
     - MongoDB
   description:
-    As a freelance developer, collaborated with WunderTek on a variety of projects, handling both frontend and backend tasks. 
-    Responsible for implementing new features and ensuring timely delivery to meet client satisfaction.
+    Good freelance relationships are rare. WunderTek brought me back because I delivered what I said I would, when I said I would. 
+    Continued working on full-stack projects, building on the foundation we established during my first tenure. 
+    Trust is the scarcest resource in tech—you earn it by showing up and shipping.
 
 
 
@@ -101,9 +95,10 @@
     - Solidity
     - MongoDB
   description:
-    Worked with the Treasurer team to provide analytics on blockchain transactions, automate airdrop processes, and develop notification bots for tracking transactions. 
-    Built scripts to analyze wallet activities and detect irregularities. 
-    Created automation tools to streamline token distribution and enhance transaction monitoring.
+    Crypto teams move money, not just data. Worked with treasury operations to build systems that detect anomalies before they become losses. 
+    Automated airdrops instead of manual spreadsheet gymnastics, built transaction monitoring that catches patterns humans miss, 
+    and learned that in blockchain, "irregularity" usually means someone's about to lose everything. 
+    Built tools that made finance teams sleep better.
     
 - company:
     name: Deal.ai
@@ -123,7 +118,8 @@
     - MongoDB
     - GraphQL
   description:
-    Contributed to building Deal.ai’s platform from the ground up, developing both frontend and backend systems. 
-    Implemented core features including AI-driven content generation, API integrations, and custom web applications. 
-    Played a key role in setting up the architecture, ensuring scalability, and enhancing user experience across the platform.
+    Building from zero means every decision sticks. Architecture choices made in month one are the foundation or the debt in month twelve. 
+    Helping shape Deal.ai from initial commit to shipped product—frontend, backend, the glue between them. 
+    Working with AI integrations that felt impossible a year ago, solving problems that didn't exist when I started. 
+    This is what I was building toward during that gap year.
 

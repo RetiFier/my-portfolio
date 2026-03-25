@@ -7,24 +7,36 @@
     location: Bangkok, Thailand
     relocation: true
     company: Deal.ai
+    email: dev.retifier@gmail.com
     for_hire: true
     about: |
-      Passionate full-stack developer with hands-on experience in web and mobile application development. 
-      I took a gap to dive deeper into technology, successfully launching and developing projects that expanded my skills in React, NodeJS, and the full development lifecycle. 
-      With a strong foundation in software engineering and a curiosity for emerging tech, I am eager to take on new challenges and grow in the dynamic world of development.
+      I build software that survives reality. Not for demos, not for portfolios. For people who need things to work when it matters. Most code gets written once and read hundreds of times—I build for readers. Problems have contexts, not solutions, and the answers shape the architecture, not the other way around.
     skills:
       - React
       - Next.js
       - TypeScript
+      - JavaScript
       - Tailwind CSS
-      - GraphQL
       - Node.js
-      - Express JS
-      - Web3.js
+      - Express.js
+      - Fastify
+      - GraphQL
+      - REST APIs
       - MongoDB
+      - PostgreSQL
       - Supabase
-      - RESTful APIs
+      - Redis
+      - Drizzle ORM
+      - Mongoose
+      - WebSocket / Socket.IO
+      - Stripe Integration
+      - AI Integration
+      - WebRTC
+      - Sharp
       - Solidity
+      - Web3.js
+      - Docker
+      
     tools:
       - Visual Studio Code
       - Git
@@ -33,3 +45,4 @@
       - Postman
       - Prisma
       - Webpack
+      

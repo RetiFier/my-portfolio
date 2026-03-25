@@ -1,61 +1,64 @@
 import * as React from "react";
-import { Link } from "gatsby";
-import { Button } from "../components/Button";
+import { Link, graphql, useStaticQuery } from "gatsby";
+import { motion } from 'framer-motion';
 import { SEO } from "../components/Seo";
+import { Layout } from '../components/Layout';
+import { FiHome } from "react-icons/fi";
+import { ProfileType, SocialType } from '../@types/about';
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-};
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-};
+const NotFoundPage = ({ location }: { location: Location }) => {
+  const data = useStaticQuery(graphql`
+    query NotFoundPageQuery {
+      profile: allProfileYaml {
+        nodes {
+          profile {
+            fname
+            lname
+            email
+          }
+        }
+      }
+      social: allSocialYaml {
+        nodes {
+          name
+          url
+        }
+      }
+    }
+  `);
 
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-};
+  const profile = (data.profile.nodes[0]?.profile || { fname: '', lname: '', email: '' }) as ProfileType;
+  const social = data.social.nodes as SocialType[];
 
-// markup
-const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
+    <Layout social={social} profile={profile} location={location}>
       <SEO title="Not Found" />
-      <div className="flex flex-col items-center">
-        <h1 className="font-bold text-blue-600 text-9xl">404</h1>
-
-        <h6 className="mb-2 text-2xl font-bold text-center text-gray-800 md:text-3xl">
-          <span className="text-red-500">Oops!</span> Page not found
-        </h6>
-        <p>
-          Sorry{" "}
-          <span role="img" aria-label="Pensive emoji">
-            😔
-          </span>{" "}
-          we couldn’t find what you were looking for.
-          <br />
-          {process.env.NODE_ENV === "development" ? (
-            <>
-              <br />
-              Try creating a page in <code style={codeStyles}>src/pages/</code>.
-              <br />
-            </>
-          ) : null}
-          <br />
-        </p>
-
-        <button className=" block border-cyan-400 border-2 dark:border-indigo-400 transition transition-300 rounded-lg px-4 py-2 headline hover:gradient-bg hover:text-off-white">
-          <Link to="/">Go Home</Link>.
-        </button>
+      <div className="min-h-screen flex items-center justify-center px-4 sm:px-6">
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <p className="text-[9px] sm:text-[10px] tracking-[0.4em] text-[#6b7280] uppercase mb-8">
+            404
+          </p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl text-white font-normal mb-6">
+            Page not found
+          </h1>
+          <p className="text-base text-[#6b7280] mb-10 max-w-md mx-auto leading-relaxed">
+            The page you're looking for doesn't exist or has been moved.
+          </p>
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2.5 px-6 py-3 border border-[#1e1e1e] text-[#6b7280] hover:text-white hover:border-[#3b82f6] transition-all duration-300 text-sm tracking-wider"
+          >
+            <FiHome className="w-4 h-4" />
+            Go Home
+          </Link>
+        </motion.div>
       </div>
-    </main>
+    </Layout>
   );
 };
 

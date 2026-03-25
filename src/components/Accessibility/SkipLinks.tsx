@@ -18,7 +18,7 @@ const skipLinks: SkipLink[] = [
 export const SkipLinks: React.FC = () => {
   return (
     <div className="sr-only focus-within:not-sr-only">
-      <nav aria-label="Skip navigation links" className="fixed top-0 left-0 z-[100]">
+      <nav aria-label="Skip navigation links" className="fixed top-0 left-0 z-[200]">
         <ul className="flex flex-col">
           {skipLinks.map((link, index) => (
             <li key={link.href}>
