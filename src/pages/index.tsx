@@ -72,6 +72,10 @@ export const query = graphql`
           availability
           focus
           about
+          education {
+            qualification
+            institution
+          }
           principles {
             title
             text

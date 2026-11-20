@@ -65,13 +65,12 @@ Only link repositories that are public.
 ## Résumé
 
 `/resume/` renders the résumé from the same YAML and is designed to print on
-A4. It includes a career-span strip and a small per-role track beside each
-date range, both built from the role dates. On screen it also has count-up
-figures, scroll reveal, a contents rail with reading progress (wide screens),
-an "in view" panel whose start year rolls as you read, a stack filter
-(technology counts from `job.yaml` and the listed projects; selecting one
-highlights where it was used) and a "copy as plain text" action. These are
-screen-only and never affect the printout, the copied text or the PDF.
+A4. It is deliberately plain: one column, no motion and no decorative charts,
+so it reads the same on screen, on paper and in applicant tracking systems.
+The summary comes from `resumeSummary` in `profile.yaml`, the availability
+line from `availability`, and the first three non-archive projects are listed
+with their `highlights` as bullets. The toolbar has Copy text (the whole
+résumé as plain text, for application forms), Print and Download PDF.
 
 After changing experience, regenerate the downloadable PDF (`static/Reti-Fier-Resume.pdf`; the build also copies it to `/resume.pdf` for older links) (keep it to two
 pages). Use an absolute output path: a relative one can silently write

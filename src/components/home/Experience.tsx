@@ -232,7 +232,7 @@ export const Experience: React.FC<{ jobs: JobType[]; linkedin: string | null }> 
             <CountUp value={years} />+ yrs / product, platform, data
           </>
         }
-        lead="From React and React Native interfaces to AI platforms, blockchain tooling and backend systems. The most recent work is open below; every role expands to show responsibilities and stack."
+        lead="From system design, APIs and payment infrastructure to AI platforms, data pipelines and the interfaces on top. The most recent work is open below; every role expands to show responsibilities and stack."
       />
 
       <div className="grid gap-10 lg:grid-cols-12">

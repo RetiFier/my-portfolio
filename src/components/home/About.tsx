@@ -33,6 +33,19 @@ export const About: React.FC<{ profile: ProfileType }> = ({ profile }) => {
               </Reveal>
             ))}
           </div>
+          {profile.education?.length ? (
+            <Reveal>
+              <dl className="mt-10 grid gap-x-6 gap-y-1 border-t border-line pt-5 sm:grid-cols-[8rem_1fr]">
+                <dt className="font-mono text-label uppercase tracking-[0.05em] text-muted">Education</dt>
+                {profile.education.map((e) => (
+                  <dd key={e.qualification} className="text-ink sm:col-start-2">
+                    {e.qualification}
+                    <span className="text-muted">, {e.institution}</span>
+                  </dd>
+                ))}
+              </dl>
+            </Reveal>
+          ) : null}
         </div>
       </div>
 

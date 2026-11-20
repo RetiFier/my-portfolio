@@ -10,6 +10,11 @@ export interface Principle {
   text: string;
 }
 
+export interface Education {
+  qualification: string;
+  institution: string;
+}
+
 export interface SkillGroup {
   title: string;
   summary: string | null;
@@ -30,6 +35,7 @@ export interface ProfileType {
   email: string | null;
   availability: string | null;
   focus: string[] | null;
+  education?: Education[] | null;
   about: string[] | null;
   principles: Principle[] | null;
   skillGroups: SkillGroup[] | null;

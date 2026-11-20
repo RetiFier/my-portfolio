@@ -54,7 +54,7 @@ export const Navigation: React.FC<NavigationProps> = ({ isHome, name }) => {
       <nav aria-label="Primary" className="container-site flex h-16 items-center justify-between md:h-[4.5rem]">
         <Link to="/" className="tap group flex items-baseline gap-3" aria-label={`${name}, home`}>
           <span className="display text-[1.05rem] tracking-[-0.02em] text-ink transition-colors group-hover:text-accent">{name}</span>
-          <span className="hidden font-mono text-label uppercase tracking-[0.05em] text-faint lg:inline">/ software engineer</span>
+          <span className="hidden font-mono text-label uppercase tracking-[0.05em] text-faint lg:inline">/ full-stack product engineer</span>
         </Link>
 
         <ul className="hidden items-center gap-1.5 md:flex">

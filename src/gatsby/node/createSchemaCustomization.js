@@ -24,9 +24,15 @@ module.exports = ({ actions }) => {
       email: String
       availability: String
       focus: [String]
+      education: [Education]
       about: [String]
       principles: [Principle]
       skillGroups: [SkillGroup]
+    }
+
+    type Education {
+      qualification: String!
+      institution: String!
     }
 
     type Principle {

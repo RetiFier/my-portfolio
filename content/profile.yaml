@@ -4,33 +4,40 @@
     initials: RF
     fname: Reti
     lname: Fier
-    profession: Full-Stack Software Engineer
+    profession: Senior Full-Stack / Product Engineer
     headline: Engineering software from architecture to production.
     intro: >-
-      I build SaaS platforms, AI-powered applications and backend systems,
-      with a focus on practical engineering, maintainability and the
-      complexity that only shows up in real-world use.
+      I design, build and run complete products: SaaS platforms, AI-powered
+      applications and the backend systems behind them, from architecture and
+      APIs to deployment and long-term maintenance.
     resumeSummary: >-
-      Full-stack software engineer with 7+ years of experience building SaaS
-      platforms, AI-powered applications and backend systems. Works across the
-      full lifecycle: architecture, APIs and data models, product interfaces,
-      deployment and production maintenance. Recent focus on TypeScript,
-      Node.js, PostgreSQL and AI integrations, with additional experience in
-      financial technology, blockchain tooling and automation.
+      Full-stack engineer with 7+ years of experience designing, building,
+      deploying and maintaining SaaS platforms and production applications.
+      Takes features from system design, APIs, databases and integrations
+      through product interfaces to deployment and long-term maintenance.
+      Recent work covers Stripe payments and subscription billing, AI-powered
+      features and automation, and backend systems for a multi-country data
+      platform, alongside Kanonara, a live AI-assisted writing platform built
+      and operated independently. Works independently or within product
+      teams, mainly with TypeScript, React, Next.js, Node.js, PostgreSQL and
+      MongoDB.
     careerStart: "2019-08"
     image: images/icon.png
     email: dev.retifier@gmail.com
     availability: Open to full-time and contract engineering roles
     focus:
       - SaaS platforms
-      - AI-powered products
-      - Backend systems
-      - Fintech & automation
+      - System design & APIs
+      - AI features & automation
+      - Payments & subscriptions
+    education:
+      - qualification: BSc (Top-Up) in Computer Science
+        institution: University of Roehampton, London
     about:
       - >-
-        I'm a full-stack software engineer with more than seven years of
-        experience building SaaS platforms, AI-powered products and the backend
-        systems behind them. Most of my work sits where product requirements
+        I'm a full-stack engineer with more than seven years of experience
+        designing, building and running SaaS platforms, AI-powered products and
+        the backend systems behind them. Most of my work sits where product requirements
         meet system design: how the data should be modeled, where a boundary
         belongs, and what has to stay true for a feature to keep working long
         after launch.
@@ -39,8 +46,10 @@
         the interfaces people actually use, and the deployment, debugging and
         maintenance that come after. Along the way that has meant an AI content
         platform, blockchain treasury tooling, financial data pipelines, a
-        point-of-sale system and, today, independent contract work on
-        commercial web applications.
+        point-of-sale system and, today, independent contract work on SaaS
+        products: payments and subscription billing, business-management
+        tools, and backend systems for a multi-country data platform. I'm as
+        comfortable owning a product on my own as I am working inside a team.
       - >-
         Outside client work I build my own products end to end. Kanonara is a
         long-form writing platform where AI analysis assists authors without
@@ -138,15 +147,15 @@
         summary: >-
           Domains where correctness and failure handling matter more than usual.
         practice:
+          - Stripe payments, subscription management and billing workflows
           - LLM extraction with model routing and fallback chains
           - Exchange integration, risk controls and backtesting for crypto futures
           - On-chain monitoring, airdrop automation and notification bots
         items:
+          - Stripe payments & subscriptions
           - AI integrations
           - OpenRouter
           - Automation & bots
-          - Financial technology
           - CCXT / exchange APIs
           - Web3.js
           - Ethers.js
-          - Stripe

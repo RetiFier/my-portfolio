@@ -3,10 +3,10 @@ module.exports = {
   siteMetadata: {
     title: "Reti Fier",
     description:
-      "Full-stack software engineer with 7+ years building SaaS platforms, AI-powered applications and backend systems, from architecture to production.",
+      "Senior full-stack and product engineer with 7+ years building SaaS platforms, AI-powered applications and backend systems, from architecture to production.",
     locale: "en",
     author: "Reti Fier",
-    name: "Reti Fier — Full-Stack Software Engineer",
+    name: "Reti Fier — Senior Full-Stack / Product Engineer",
     siteUrl: `https://retifier.dev`,
     image: "/og-image.png",
   },
@@ -48,7 +48,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "Reti Fier — Full-Stack Software Engineer",
+        name: "Reti Fier — Senior Full-Stack / Product Engineer",
         short_name: "Reti Fier",
         start_url: "/",
         background_color: "#0a0a0a",

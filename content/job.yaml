@@ -6,29 +6,33 @@
 # - toDate omitted and `current` false renders the start date only
 #   (used where an end date is not confirmed).
 # Logos are resolved relative to this file (content/images/...).
+# Work setup (remote, hybrid, on-site) is deliberately not listed.
 ---
 - order: 1
   company:
     name: Self-employed
   jobTitle: Independent Software Engineer
   employmentType: Contract
-  workplace: Remote
   fromDate: "2026-01"
   current: true
   summary: >-
-    Full-stack engineering for commercial web applications and SaaS products,
-    carrying work from product requirements through architecture,
-    implementation, deployment and long-term maintenance.
+    Full-stack engineering on SaaS products and commercial web applications,
+    from product requirements and architecture through deployment and
+    long-term maintenance.
+  # Client projects are described without names, links or client-specific
+  # figures: this work is under NDA and this repository is public.
   highlights:
-    - Design APIs, database models and third-party integrations around the workflows a product actually depends on.
-    - Build and maintain frontend applications, backend services and the infrastructure they run on.
-    - Turn product requirements into technical plans, making the tradeoff between delivery speed and long-term maintainability explicit.
-    - Own testing, debugging, deployment and production maintenance across the application lifecycle.
+    - Own features end to end across design, development, testing and production deployment on full-stack SaaS applications.
+    - Design backend architecture, APIs and database systems, including the backend services and data infrastructure of a multi-country business registry platform.
+    - Developed an appointment-management SaaS platform with AI-powered features, business-management workflows, admin dashboards and analytics.
+    - Implement Stripe payments, subscription management and billing workflows for invoicing and financial-administration systems.
+    - Improve existing applications, ship new features and manage production deployments.
   technologies:
     - TypeScript
     - React
     - Node.js
     - REST APIs
+    - Stripe
   note: Some engagements are under NDA, so client names and project details are not listed.
 
 - order: 2
@@ -38,7 +42,6 @@
     url: https://www.deal.ai/
   jobTitle: Full Stack Engineer
   employmentType: Full-time
-  workplace: Remote
   fromDate: "2023-04"
   toDate: "2025-09"
   summary: >-
@@ -46,10 +49,10 @@
     working across the frontend and backend systems behind content generation,
     integrations and custom web applications.
   highlights:
-    - Implemented AI-driven content-generation features and integrated external APIs into product workflows.
-    - Built user-facing applications with React, Next.js, TypeScript and Tailwind CSS, backed by Node.js and Express.js services.
-    - Helped establish the application architecture and the services and data flows behind core product features.
-    - Maintained the platform across the stack, resolving issues, refining the user experience and contributing scalability improvements.
+    - Helped build the platform from the ground up, working on both the frontend and backend architecture and the services and data flows behind core features.
+    - Implemented AI-powered content-generation features and integrated external APIs into product workflows.
+    - Built custom web applications and user-facing products with React, Next.js, TypeScript and Tailwind CSS, backed by Node.js and Express.js services.
+    - Worked across the full development lifecycle, from feature design and implementation to releases, maintenance and scalability improvements.
   technologies:
     - React
     - Next.js
@@ -62,21 +65,20 @@
 
 - order: 3
   company:
-    name: VEXT
+    name: Veloce (VEXT Crypto)
     logo: images/veloce.png
   jobTitle: Full Stack Engineer
   employmentType: Freelance
-  workplace: Remote
   fromDate: "2023-08"
   toDate: "2024-01"
   summary: >-
-    Built blockchain analysis and automation tooling for a treasury team,
+    Built blockchain analytics and automation tooling for a treasury team,
     covering token distribution and the monitoring of on-chain activity.
   highlights:
-    - Automated airdrop and token-distribution workflows for treasury operations.
-    - Built notification bots that track on-chain transactions and wallet activity.
-    - Wrote analysis scripts that flag irregular wallet activity for review.
-    - Integrated on-chain data into backend tools for transaction analysis and monitoring.
+    - Developed blockchain transaction analytics that flag irregular wallet activity for review.
+    - Automated airdrop and token-distribution processes for treasury operations.
+    - Built wallet monitoring tools and notification bots that track on-chain transactions.
+    - Integrated on-chain data into backend tools for transaction analysis.
   technologies:
     - Node.js
     - TypeScript
@@ -98,8 +100,8 @@
     Developed cryptocurrency and stock-market data applications, combining
     product development with automated collection of public financial data.
   highlights:
+    - Developed Node.js data collection and processing systems covering more than 10,000 company descriptions, alongside cryptocurrency and live stock-market data.
     - Built a cryptocurrency price website that served multiple domains from a single codebase.
-    - Wrote a Node.js scraping pipeline that collected public data, including more than 10,000 company descriptions and live stock prices.
     - Built the interfaces and backend workflows that processed and presented financial data.
     - Maintained application security and shipped time-sensitive updates.
   technologies:
@@ -120,11 +122,10 @@
   employmentType: Freelance
   fromDate: "2022-04"
   summary: >-
-    Returned to WunderTEK as a freelance engineer on client projects,
-    working across frontend and backend implementation.
+    Freelance and collaborative full-stack development on WunderTEK client
+    projects, across frontend and backend implementation.
   highlights:
-    - Built interfaces and application features with React, Next.js and Redux.
-    - Developed backend functionality with Express.js and MongoDB.
+    - Built application features and interfaces with React, Next.js and Redux, backed by Express.js and MongoDB.
     - Turned project requirements into working features delivered to agreed timelines.
   technologies:
     - React
@@ -146,9 +147,9 @@
     Full-stack development across web applications: translating Figma designs
     into interfaces and building the APIs and database integrations behind them.
   highlights:
-    - Implemented frontend interfaces from Figma designs.
     - Built APIs and database integrations with Express.js and MongoDB.
-    - Used testing libraries across frontend and backend to verify application behavior.
+    - Implemented frontend interfaces from Figma designs with React, Next.js and Redux.
+    - Wrote frontend and backend tests to verify application behavior.
   technologies:
     - React
     - Next.js

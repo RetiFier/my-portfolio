@@ -68,7 +68,8 @@ export const Hero: React.FC<HeroProps> = ({ profile, jobs, productCount }) => {
         <motion.div style={{ y: headY, opacity: headOpacity }}>
           <h1 id="hero-title" className="mt-10 md:mt-14">
             <span className="rise eyebrow block text-muted" style={delay(60)}>
-              {profile.fname} {profile.lname} <span className="text-faint">/</span> {profile.profession}
+              {profile.fname} {profile.lname}
+              <span className="text-faint">,</span> {profile.profession}
             </span>
             <span className="sr-only">: </span>
             <span className="display mt-5 block text-[9.2vw] text-ink sm:text-[8.6vw] lg:text-[5.4rem] xl:text-[6.4rem]">
