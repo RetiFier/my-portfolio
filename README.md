@@ -62,6 +62,15 @@ Featured projects that include a `caseStudy` block automatically get a page at
 architecture diagram on that page is drawn from `caseStudy.architecture`.
 Only link repositories that are public.
 
+`caseStudy.deepDives` adds project-specific sections between "Key decisions"
+and "Tradeoffs", each with `lead` paragraphs, `points` and optional `visuals`.
+A visual is named in YAML and registered in
+`src/components/visuals/system/index.tsx`. Synthetic Instinct uses this for its
+decision contract, intent ledger, ports, walk-forward, rollout, command-center
+and verification figures. They are modeled on that project's code, captioned
+as illustrative, and show no market data or results. They render finished on
+the server and under reduced motion.
+
 ## Résumé
 
 `/resume/` renders the résumé from the same YAML and is designed to print on

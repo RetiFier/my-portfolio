@@ -13,11 +13,25 @@ export interface Decision {
   detail: string;
 }
 
+/**
+ * A project-specific section between "Key decisions" and "Tradeoffs".
+ * `visuals` names interactive figures registered in `visuals/deepDiveVisuals`.
+ */
+export interface DeepDive {
+  id: string;
+  label: string;
+  title: string;
+  lead: string[] | null;
+  points: Decision[] | null;
+  visuals: string[] | null;
+}
+
 export interface CaseStudy {
   problem: string[] | null;
   approach: string[] | null;
   architecture: ArchitectureLayer[] | null;
   decisions: Decision[] | null;
+  deepDives: DeepDive[] | null;
   tradeoffs: string[] | null;
   outcomes: string[] | null;
   note: string | null;

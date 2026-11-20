@@ -237,15 +237,229 @@
           gates and the final ranking stay deterministic and testable.
       - title: Earn promotion with evidence
         detail: >-
-          Changes move from shadow to canary to live behind approvals bound to
-          the exact configuration being promoted.
+          Changes move from shadow through canary, limited and expanded stages
+          to primary, one approval at a time, each bound to fresh evidence.
+    deepDives:
+      - id: contract
+        label: Decision contract
+        title: The decision contract
+        lead:
+          - >-
+            Every candidate the scanner produces, swing or scalp, is reduced to
+            the same record: a data-quality state, gates marked authoritative or
+            advisory, expected return with a lower bound, downside (CVaR),
+            execution cost, marginal portfolio risk and the action the strategy
+            is asking for.
+          - >-
+            One pure function turns that record into an action tier and one sort
+            ranks the whole set. Neither does any I/O, so the same inputs give
+            the same answer in production, in replay and in tests. Try the rule
+            below.
+        visuals:
+          - contract-explorer
+        points:
+          - title: Blocking is not negotiable
+            detail: >-
+              Invalid data or any failed authoritative gate resolves to BLOCK,
+              whatever the strategy requested.
+          - title: Degraded data loses automation
+            detail: >-
+              A candidate built on degraded data can stay visible, but AUTO and
+              MICRO_AUTO are reduced to manual review.
+          - title: Advisory means advisory
+            detail: >-
+              Failed advisory gates are kept as reason codes for the operator.
+              They can never act as a hard block.
+          - title: One rank, computed once
+            detail: >-
+              Blocked candidates sort last; the rest by utility, falling back to
+              the return's lower bound or expected return when utility is
+              missing, with stable tie-breaks. Consumers read the stored rank
+              instead of recomputing it.
+      - id: execution
+        label: Execution & recovery
+        title: Execution and recovery
+        lead:
+          - >-
+            Every order mutation goes through one gateway, and automated entries
+            reach it as order intents. An intent's ID is derived from its signal,
+            its content is fingerprinted with SHA-256, and it moves through a
+            durable ledger that allows exactly one claimant.
+          - >-
+            The hard case is a crash or timeout after the request has left. The
+            exchange may already have accepted the order, so the system does not
+            guess: the intent is reported as unknown and left for reconciliation
+            instead of being sent again.
+        visuals:
+          - intent-ledger
+        points:
+          - title: Stable client order IDs
+            detail: >-
+              The gateway derives a stable exchange client order ID from each
+              intent and, after an ambiguous response, looks the order up
+              read-only before anything else is sent.
+          - title: Resting orders settle later
+            detail: >-
+              A resting limit order is stored as ACCEPTED and moved to FILLED or
+              FAILED by whichever path observes its outcome. Settled records
+              never change again.
+          - title: Stops are replaced create-first
+            detail: >-
+              A new stop is placed and verified at the full position size before
+              the old one is cancelled. If the new stop cannot be verified, the
+              old one stays.
+          - title: Protection is proven or unknown
+            detail: >-
+              A position counts as protected only when current reduce-only stops
+              on the closing side cover its full quantity. Anything weaker is
+              reported as UNKNOWN, never as safe.
+      - id: replay
+        label: Ports & replay
+        title: Ports and replay
+        lead:
+          - >-
+            Decision logic reaches the outside world through five narrow ports:
+            clock, market data, account, execution and the decision journal.
+            Live adapters wrap the exchange and the database; replay adapters
+            are deterministic and need no network.
+          - >-
+            Market and account reads return a snapshot with a quality state, so
+            missing or stale evidence can never turn into an unexplained zero.
+            Live read adapters do not import order code, and simulated execution
+            is never wired into live trading.
+        visuals:
+          - ports-switch
+        points:
+          - title: Migrated behind golden masters
+            detail: >-
+              Production ranking moved onto the replay-safe scan-cycle seam
+              behind golden-master tests against the legacy ranker, covering
+              visible, hidden, invalid and hard-blocked candidates.
+          - title: An append-only journal
+            detail: >-
+              Decision events carry a correlation ID, an atomic per-correlation
+              sequence, occurred and observed timestamps, and the build, policy
+              and configuration that produced them. Duplicates are rejected by a
+              unique index.
+          - title: Order-independent replay
+            detail: >-
+              The replay runner drains a stable receive-time queue and hashes
+              every input event, so shuffling the source records cannot change
+              the trace or its final fingerprint.
+      - id: research
+        label: Research & promotion
+        title: From hypothesis to capital
+        lead:
+          - >-
+            A strategy idea starts as a written pre-registration: the causal
+            thesis, one primary metric, acceptable risk, a frozen holdout and a
+            parameter budget, all fixed before any test runs. Every parameter
+            set tried is hashed into a trial ledger, and going over budget fails
+            closed.
+          - >-
+            Evaluation uses purged walk-forward windows with an embargo, so no
+            training label leaks into a test window, and only the variant
+            selected across development windows ever touches the holdout.
+            Results are discounted for the number of variants tried, and a
+            rejected hypothesis is recorded as rejected rather than re-tuned
+            until it passes.
+        visuals:
+          - walk-forward
+          - promotion-ladder
+        points:
+          - title: Discounted for trying
+            detail: >-
+              The overfitting report includes a deflated-Sharpe probability,
+              seeded bootstrap bounds and a walk-forward probability of
+              overfitting. A strong point estimate is not enough on its own.
+          - title: A gate with three answers
+            detail: >-
+              The promotion gate returns PROMOTE_TO_CANARY, MORE_EVIDENCE or
+              REJECT. Its blockers include orphan or duplicate orders, protection
+              failures, stale decisions, reconciliation drift, shadow-replay
+              disagreement and a missing rollback path.
+          - title: One stage at a time
+            detail: >-
+              A policy moves from shadow through canary, limited and expanded to
+              primary, one approved step at a time, each needing evidence newer
+              than the last change. A drawdown or tail-risk regression rolls it
+              back to shadow automatically.
+      - id: operations
+        label: Operating it
+        title: Operating it
+        lead:
+          - >-
+            The system is run from two surfaces. A Telegram bot handles commands,
+            alerts and confirmations. A web command center, built and deployed
+            separately, gives a read-first view of positions, decisions,
+            incidents, research and runtime health.
+          - >-
+            The web app holds no trading logic and no exchange client. The
+            browser only talks to its own server, which calls the bot's operator
+            API with a service credential and a verified operator session. The
+            bot stays the authority for every decision and every order.
+        visuals:
+          - operator-boundary
+        points:
+          - title: Fails closed, never fills in
+            detail: >-
+              When the console is not linked to an authenticated backend it
+              shows an explicit unlinked state. It never substitutes sample
+              financial data.
+          - title: One schema, both sides
+            detail: >-
+              The operator API's Zod schemas generate an OpenAPI document and a
+              typed client. Responses are validated again at runtime, and a drift
+              check fails verification if the two diverge.
+          - title: Few, guarded actions
+            detail: >-
+              The console's mutations (emergency halt, step-up resume, incident
+              acknowledgement, single-order cancel, position close) are
+              idempotent, and order and position actions are bound to the
+              state the operator was looking at.
+      - id: verification
+        label: Verification
+        title: Verification and hardening
+        lead:
+          - >-
+            One command is the bar for every change. It runs type checks for
+            production and test code, linting, architecture and dead-code
+            audits, the API drift check, the full test suite and builds for the
+            bot and the web app, then writes a report tied to the exact commit,
+            branch, working-tree state and lockfile.
+          - >-
+            Recent work has gone into closing failure modes found by audits of
+            the code and the live database, each change landing with regression
+            tests.
+        visuals:
+          - verify-pipeline
+        points:
+          - title: Missing risk data blocks entries
+            detail: >-
+              A failed position read used to look like a halt that could then be
+              lifted as "recovered". Missing data now blocks new entries with its
+              own reason and never clears a stored halt.
+          - title: No gap when a stop moves
+            detail: >-
+              Stop replacement now creates and verifies the new stop before
+              cancelling the old one, closing a window in which a position had
+              no stop.
+          - title: Webhook secret out of URLs
+            detail: >-
+              Webhook requests are authenticated with a secret that never appears
+              in a URL or access log, with an alert and automatic recovery if a
+              mismatch ever locks the operator out.
+          - title: Every release traceable
+            detail: >-
+              The image build refuses to run without a source revision, so each
+              running release can be tied to a commit.
     tradeoffs:
       - Refusing to auto-reclaim interrupted orders occasionally needs manual reconciliation, accepted to rule out duplicate orders.
       - A modular monolith keeps latency and operations simple; ports keep the boundaries testable.
       - Conservative gates block more opportunities than a looser system would, by design.
     outcomes:
-      - A single verification command runs type checks for production and test code, linting, architecture and dead-code audits, API schema drift detection, the full test suite and builds.
-      - Deterministic event replay, walk-forward validation with purge and embargo splits, and calibration scoring for predictive signals.
+      - Production ranking, the full candidate trace and the scalp watchlist run through one deterministic, replay-safe scan-cycle seam.
+      - Deterministic event replay, purged walk-forward validation, pre-registered trials and calibration scoring for predictive signals.
       - Operator tooling covering health incidents with escalation, execution quality and daily reconciliation against the exchange.
     note: >-
       This is a personal research system, not a product or a financial

@@ -10,7 +10,8 @@ import { ScrambleText, SplitText } from "../components/motion";
 import { BrowserFrame } from "../components/visuals/BrowserFrame";
 import { DecisionTrace } from "../components/visuals/DecisionTrace";
 import { ArchitectureDiagram } from "../components/visuals/ArchitectureDiagram";
-import { CaseStudy, ProjectType } from "../@types/project";
+import { deepDiveVisuals } from "../components/visuals/system";
+import { CaseStudy, DeepDive, ProjectType } from "../@types/project";
 import { explore } from "../hooks/useExplore";
 
 type CaseStudyProject = Omit<ProjectType, "caseStudy"> & { caseStudy: CaseStudy };
@@ -28,6 +29,31 @@ const sections = [
   { id: "tradeoffs", label: "Tradeoffs" },
   { id: "outcomes", label: "Outcomes" },
 ];
+
+/** A project-specific section: lead paragraphs, its figures, then the detail points. */
+const DeepDiveBody: React.FC<{ dive: DeepDive }> = ({ dive }) => (
+  <>
+    <Paragraphs items={dive.lead} />
+    {dive.visuals?.map((name) => {
+      const Visual = deepDiveVisuals[name];
+      return Visual ? (
+        <Reveal key={name} className="mt-10">
+          <Visual />
+        </Reveal>
+      ) : null;
+    })}
+    {dive.points?.length ? (
+      <dl className="mt-10 grid gap-x-10 border-t border-line md:grid-cols-2">
+        {dive.points.map((p) => (
+          <Reveal key={p.title} className="border-b border-line py-5">
+            <dt className="font-display text-base font-semibold uppercase tracking-[-0.01em] text-ink">{p.title}</dt>
+            <dd className="mt-2 leading-relaxed text-muted">{p.detail}</dd>
+          </Reveal>
+        ))}
+      </dl>
+    ) : null}
+  </>
+);
 
 const Block: React.FC<{ id: string; index: number; title: string; children: React.ReactNode }> = ({
   id,
@@ -81,10 +107,19 @@ const CaseStudyPage: React.FC<PageProps<CaseStudyData>> = ({ data, location }) =
     </div>
   ) : null;
 
-  const present = sections.filter((s) => {
+  const base = sections.filter((s) => {
     const value = cs[s.id as keyof CaseStudy];
     return Array.isArray(value) ? value.length > 0 : Boolean(value);
   });
+  // Deep dives sit between "Key decisions" and "Tradeoffs".
+  const dives = cs.deepDives ?? [];
+  const cut = base.findIndex((s) => s.id === "tradeoffs" || s.id === "outcomes");
+  const at = cut === -1 ? base.length : cut;
+  const present = [
+    ...base.slice(0, at),
+    ...dives.map((d) => ({ id: d.id, label: d.label })),
+    ...base.slice(at),
+  ];
 
   return (
     <Layout pathname={location.pathname}>
@@ -160,7 +195,8 @@ const CaseStudyPage: React.FC<PageProps<CaseStudyData>> = ({ data, location }) =
             </nav>
           </aside>
 
-          <div className="lg:col-span-9">
+          {/* min-w-0: scrolling tab rows inside figures must not widen the grid column. */}
+          <div className="min-w-0 lg:col-span-9">
             {present.map((s, i) => {
               const index = i + 1;
               switch (s.id) {
@@ -232,8 +268,14 @@ const CaseStudyPage: React.FC<PageProps<CaseStudyData>> = ({ data, location }) =
                       )}
                     </Block>
                   );
-                default:
-                  return null;
+                default: {
+                  const dive = dives.find((d) => d.id === s.id);
+                  return dive ? (
+                    <Block key={s.id} id={s.id} index={index} title={dive.title}>
+                      <DeepDiveBody dive={dive} />
+                    </Block>
+                  ) : null;
+                }
               }
             })}
 
@@ -313,6 +355,17 @@ export const query = graphql`
         decisions {
           title
           detail
+        }
+        deepDives {
+          id
+          label
+          title
+          lead
+          points {
+            title
+            detail
+          }
+          visuals
         }
         tradeoffs
         outcomes

@@ -93,9 +93,19 @@ module.exports = ({ actions }) => {
       approach: [String]
       architecture: [ArchitectureLayer]
       decisions: [Decision]
+      deepDives: [DeepDive]
       tradeoffs: [String]
       outcomes: [String]
       note: String
+    }
+
+    type DeepDive {
+      id: String!
+      label: String!
+      title: String!
+      lead: [String]
+      points: [Decision]
+      visuals: [String]
     }
 
     type ArchitectureLayer {
