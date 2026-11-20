@@ -1,113 +1,381 @@
+# Projects.
+#
+# tier:
+#   featured  - large showcase on the home page; add `caseStudy` to get /work/<slug>/
+#   selected  - secondary cards
+#   archive   - compact list of older work
+# Only link repositories that are public. Images resolve relative to this file.
 ---
-- project:
-    name: Reti Blog
-    logo:
-    url: https://blog.retifier.dev
-  name: Reti Blog
-  date: Dec 2024
+- slug: kanonara
+  tier: featured
+  order: 1
+  name: Kanonara
+  tagline: A novel-writing and publishing platform that remembers your canon.
+  category: Product / Independent
+  status: Live / Early access
+  period: "2026 – present"
+  year: 2026
+  role: Designed, built and operated independently
+  url: https://www.kanonara.com/
+  image: images/projects/kanonara.png
+  summary: >-
+    A writing platform for long fiction. As an author writes, Kanonara analyzes
+    each chapter, tracks characters, relationships, places, rules and timeline,
+    and flags passages that contradict what the story has already established.
+    Nothing becomes canon until the author approves it, and finished books can
+    be published to a public reader library.
+  highlights:
+    - Structured story memory with history, so the system can answer what a character knew at any chapter
+    - AI analysis that proposes changes for author review instead of silently rewriting the story
+    - Writing that never waits on AI, with model fallbacks when a provider fails
+    - Fixed-page typesetting for 11 languages across seven scripts, identical on phone, tablet and desktop
   technologies:
-    - Next.js 14
+    - Next.js
+    - React
+    - TypeScript
+    - Fastify
+    - Drizzle ORM
+    - PostgreSQL
+    - Zod
+    - OpenRouter
+    - Turborepo
+    - Playwright
+    - Docker
+    - Fly.io
+  caseStudy:
+    problem:
+      - >-
+        Long fiction accumulates canon: who knows what, where everyone is,
+        which rules the world obeys. Writing tools store the words but not the
+        story, and AI writing tools generate text without understanding what
+        has already been established. Continuity errors slip in between
+        chapters and are expensive to find by hand.
+      - >-
+        The goal was a platform where the system understands and remembers the
+        story while the author stays the single source of truth. AI may
+        analyze, explain and suggest, but it must never change the story on its
+        own.
+    approach:
+      - >-
+        Every saved chapter goes through the same loop. The chapter is analyzed
+        to extract what happened, the result is compared with the existing
+        story, new information comes back as proposals and possible conflicts
+        come back as Story Doctor alerts, each linked to the passages behind
+        it. The author accepts, rejects or edits each one, and only approved
+        changes enter the story bible.
+      - >-
+        The system is a TypeScript monorepo: a Next.js app for authors and
+        readers, a separate staff console, and a Fastify API over PostgreSQL,
+        with shared packages for the database schema, shared types and
+        tooling.
+    architecture:
+      - label: Clients
+        nodes:
+          - Author workspace
+          - Public reader library
+          - Staff console
+        detail: Next.js apps; the reader renders the same fixed pages the author writes on.
+      - label: API
+        nodes:
+          - Feature modules
+          - Typed request schemas
+          - Auth & sessions
+        detail: Fastify, one folder per feature with routes, plain service functions and Zod schemas.
+      - label: Story intelligence
+        nodes:
+          - Chapter analysis
+          - Proposals & Story Doctor
+          - Story memory search
+        detail: Provider-agnostic AI layer with per-language model routing and a fallback chain.
+      - label: Data & storage
+        nodes:
+          - PostgreSQL
+          - Drizzle schema & migrations
+          - Object storage
+        detail: Story entities keep their history instead of being overwritten.
+    decisions:
+      - title: Author approval is a hard boundary
+        detail: >-
+          AI output is stored as proposals, never applied directly. Canonical
+          story data changes only through an explicit accept, reject or edit,
+          which keeps the author in control and makes every change traceable.
+      - title: Saving never depends on AI
+        detail: >-
+          Chapter saves are independent of analysis. If analysis fails or a
+          provider is unavailable, the chapter stays saved and analysis can be
+          run again later.
+      - title: History instead of overwrites
+        detail: >-
+          Characters and relationships keep their history as the story moves,
+          so questions like "where was this character at chapter 27?" have a
+          real answer.
+      - title: A provider-agnostic AI layer
+        detail: >-
+          Models are reached through one adapter with a fallback chain and
+          per-language routing. A timed-out or malformed response moves on to
+          the next model, and the safety check uses its own model so routing
+          changes never swap the reviewer.
+      - title: Contracts pinned by tests
+        detail: >-
+          Every implemented API route is covered by an HTTP contract suite, and
+          browser end-to-end tests cover key author and reader flows.
+    tradeoffs:
+      - The approval step adds friction for authors, accepted deliberately so the system can never silently rewrite a story.
+      - A modular API in one deployable keeps operations simple; feature folders keep boundaries clear enough to split later if needed.
+      - Fixed A6 pages make pagination identical on every device at the cost of reflowable layouts.
+    outcomes:
+      - Live in early access, with a public library where readers can read without an account, and comment and react once signed in.
+      - Story bible, Story Doctor, timeline and relationship graph, world map, story memory search and publishing are available to approved writers.
+      - Manuscript export and full-book backup and restore.
+      - Page typesetting for 11 languages across seven scripts, including Myanmar, Thai, Han, Kana, Hangul and Devanagari.
+    note: >-
+      The source code is private. This case study describes the architecture
+      at a level that does not expose implementation or infrastructure details.
+
+- slug: synthetic-instinct
+  tier: featured
+  order: 2
+  name: Synthetic Instinct
+  tagline: An automated trading research and execution system for crypto futures.
+  category: Research system / Personal
+  status: Private / Active research
+  period: "2025 – present"
+  year: 2025
+  role: Designed and built independently
+  summary: >-
+    A personal engineering and quantitative research system for cryptocurrency
+    futures. It ingests market data, evaluates strategies with replay and
+    walk-forward validation, applies layered risk controls and executes through
+    a single audited gateway, operated through a Telegram bot and a read-only
+    web command center.
+  highlights:
+    - One execution gateway for every exchange mutation, with idempotent order intents
+    - Explicit data-quality states so missing or stale data can never read as zero
+    - Deterministic replay, walk-forward validation and calibration tracking for research
+    - Layered risk controls and a shadow, canary and live promotion path
+  technologies:
+    - TypeScript
+    - Node.js
+    - Express.js
+    - MongoDB
+    - CCXT
+    - Exchange APIs
+    - OpenRouter
+    - Telegram Bot API
+    - Next.js
+    - Jest
+    - Docker
+    - Fly.io
+  caseStudy:
+    problem:
+      - >-
+        Automated trading systems fail in unglamorous ways: an order is sent
+        twice after a timeout, a stale price is read as zero, a strategy that
+        looked good in a backtest was really overfitted, or a process restarts
+        without knowing what the exchange actually did.
+      - >-
+        Synthetic Instinct is an exercise in building that kind of system
+        properly. It is a research and engineering system first; its value is
+        in how decisions are made, executed, recorded and evaluated, not in
+        any claim about returns.
+    approach:
+      - >-
+        The live process is a modular monolith with a clear decision pipeline:
+        scan and hard gates, bounded predictive and scenario overlays, a
+        unified candidate contract, a deterministic final rank, and execution
+        through one gateway, followed by reconciliation of every trade and its
+        outcome.
+      - >-
+        Narrow ports for the clock, market data, account and execution separate
+        decision logic from the exchange, which makes deterministic replay of
+        recorded events possible.
+    architecture:
+      - label: Market data
+        nodes:
+          - Exchange streams & REST
+          - Sentiment inputs
+          - Data snapshots
+        detail: Reads return a snapshot with a quality state, so missing evidence is explicit.
+      - label: Decision
+        nodes:
+          - Hard gates
+          - Bounded AI & scenario overlays
+          - Deterministic rank
+        detail: AI review is an advisory input; invalid data or a failed hard gate always blocks.
+      - label: Risk & execution
+        nodes:
+          - Position sizing & loss limits
+          - Execution gateway
+          - Intent ledger
+        detail: The only permitted path for order mutations, with idempotent intents.
+      - label: Evidence & operations
+        nodes:
+          - Decision journal
+          - Replay & walk-forward
+          - Operator surfaces
+        detail: Append-only journal, health incidents, reconciliation and a read-only command center.
+    decisions:
+      - title: A single execution gateway
+        detail: >-
+          Every exchange mutation goes through one boundary. Simulated
+          implementations are never used by live trading, and new abstractions
+          cannot bypass the gateway.
+      - title: Safety over availability after a crash
+        detail: >-
+          Order intents move through a durable ledger with exactly one
+          claimant. An intent left in progress by a restart is never retried
+          automatically, because the exchange may already have accepted it; it
+          is surfaced for reconciliation instead.
+      - title: Data quality is part of the type
+        detail: >-
+          Market and account reads carry VALID, DEGRADED or INVALID states.
+          Degraded data cannot keep an automatic action, and invalid data
+          always blocks.
+      - title: AI as an advisor, not an authority
+        detail: >-
+          Multi-model reviews and scenario overlays are bounded inputs. Hard
+          gates and the final ranking stay deterministic and testable.
+      - title: Earn promotion with evidence
+        detail: >-
+          Changes move from shadow to canary to live behind approvals bound to
+          the exact configuration being promoted.
+    tradeoffs:
+      - Refusing to auto-reclaim interrupted orders occasionally needs manual reconciliation, accepted to rule out duplicate orders.
+      - A modular monolith keeps latency and operations simple; ports keep the boundaries testable.
+      - Conservative gates block more opportunities than a looser system would, by design.
+    outcomes:
+      - A single verification command runs type checks for production and test code, linting, architecture and dead-code audits, API schema drift detection, the full test suite and builds.
+      - Deterministic event replay, walk-forward validation with purge and embargo splits, and calibration scoring for predictive signals.
+      - Operator tooling covering health incidents with escalation, execution quality and daily reconciliation against the exchange.
+    note: >-
+      This is a personal research system, not a product or a financial
+      service, and it makes no performance claims. The code is private.
+
+- slug: reti-blog
+  tier: selected
+  order: 3
+  name: Reti Blog
+  tagline: A full-stack publishing platform with a writer dashboard.
+  category: Product / Personal
+  status: Live
+  period: "2024"
+  year: 2024
+  url: https://blog.retifier.dev
+  summary: >-
+    A blogging platform built to be fast and focused on writing: a rich-text
+    editor, categories, comments, view tracking and a dashboard for writers,
+    with authentication and role-based access on Supabase.
+  highlights:
+    - Rich-text authoring with an extensible editor
+    - Role-based writer and admin dashboards
+    - Server-rendered pages with dark and light themes
+  technologies:
+    - Next.js
+    - TypeScript
     - Supabase
+    - PostgreSQL
+    - Tiptap
     - Tailwind CSS
     - shadcn/ui
-  description: 
-    Most blogging platforms are overbuilt or underpowered. I built Reti Blog to find the middle ground—fast, focused on writing, with just enough features to matter. 
-    Real-time analytics, actual dark mode (not just color inversion), and a comment system that doesn't feel like 2010. 
-    It's the blog I wanted to use, so I built it.
 
-- project:
-    name: SeedSafer
-    logo:
-    url: https://github.com/RetiFier/seedsafer
+- slug: seedsafer
+  tier: selected
+  order: 4
   name: SeedSafer
-  date: Mar 2023
+  tagline: A mobile app for storing a wallet recovery phrase.
+  category: Mobile / Open source
+  status: Open source
+  period: "2023"
+  year: 2023
+  repo: https://github.com/RetiFier/SeedSafer
+  summary: >-
+    A React Native app that stores a twelve-word recovery phrase, derives the
+    private key and shows the wallet's ETH address and balance. The real
+    challenge was not the cryptography but making something non-technical
+    users could trust.
+  highlights:
+    - Key derivation and balance lookups with ethers.js
+    - Unit tests with Jest and end-to-end tests with Detox
   technologies:
     - React Native
     - TypeScript
-    - Ethereum API
-    - Web3.js
-  description: 
-    Everyone tells you to write down your seed phrase on paper and hide it. That's terrible advice if you actually use crypto. 
-    SeedSafer exists because I needed a way to store recovery phrases that didn't feel like gambling with my life savings. 
-    The challenge wasn't encryption—it was building something non-technical users would actually trust.
+    - Ethers.js
+    - Expo
+    - Jest
+    - Detox
 
-- project:
-    name: OP2
-    logo: images/op2.png
-    url: https://github.com/RetiFier/op2
-  name: OP2
-  date: Sep 2020
+- slug: portfolio
+  tier: selected
+  order: 5
+  name: This portfolio
+  tagline: An open-source, content-driven developer portfolio.
+  category: Web / Open source
+  status: Open source
+  period: "2022 – present"
+  year: 2022
+  repo: https://github.com/RetiFier/my-portfolio
+  summary: >-
+    A statically generated portfolio where all content lives in YAML, so
+    experience, projects and case studies can be updated without touching
+    components. Case-study pages are generated from the same data.
   technologies:
-    - React
-    - Electron
-    - JavaScript
-    - CSS
-  description: 
-    Designers shouldn't have to wait for developers to see their ideas in browsers. Developers shouldn't have to rebuild the same landing page components fifty times. 
-    OP2 was my answer to both problems—a desktop app that turns visual mocks into functional code in seconds. 
-    It's rough around the edges, but the concept worked.
-
-- project:
-    name: SE2020
-    logo:
-    url: https://github.com/aungkoman/se2020
-  name: SE 2020
-  date: Nov 2020
-  technologies:
-    - React
-    - Styled Components
-    - Redux
-  description: 
-    Award-winning product management website developed with a team under SSDLC (Secure Software Development Life Cycle). 
-    Contributed as a front-end developer using React and Redux.
-
-- project:
-    name: Portfolio
-    logo:
-    url: https://github.com/RetiFier/my-portfolio
-  name: This Portfolio
-  date: Mar 2022
-  technologies:
-    - React
     - Gatsby
-    - Tailwind CSS
+    - React
     - TypeScript
-    - YAML
-  description: 
-    Portfolios are either template boredom or over-engineered performance disasters. 
-    I built this because I wanted something that felt like a real person, not a LinkedIn profile with animations. 
-    Other developers used it. That's the best validation I could ask for.
+    - Tailwind CSS
+    - Framer Motion
+    - GraphQL
 
-- project:
-    name: Pet Sitter
-    logo:
-    url: https://github.com/hatchways/team-cedar
+- slug: react-next-starter
+  tier: archive
+  order: 6
+  name: React Next Starter
+  tagline: Server-rendered Next.js with a custom Express.js server.
+  period: "2023"
+  year: 2023
+  repo: https://github.com/RetiFier/react-next-starter
+  technologies:
+    - Next.js
+    - Express.js
+    - JavaScript
+
+- slug: pet-sitter
+  tier: archive
+  order: 7
   name: Pet Sitter
-  date: Mar 2022
+  tagline: Team-built marketplace connecting dog owners with sitters, built with mentorship from a team lead.
+  period: "2022"
+  year: 2022
+  repo: https://github.com/hatchways/team-cedar
   technologies:
     - React
-    - Node.js
-    - Express JS
     - TypeScript
+    - Node.js
+    - Express.js
     - MongoDB
-  description: 
-    Collaborated on a platform to help dog owners find pet sitters. 
-    Worked as a full-stack developer, gaining valuable experience from both technical contributions and mentorship from team lead.
 
-- project:
-    name: AI Trading System
-    logo:
-    url: 
-  name: AI Trading System
-  date: Feb 2024
+- slug: se2020
+  tier: archive
+  order: 8
+  name: SE2020
+  tagline: Award-winning product management website, built by a team under a secure development lifecycle. Front-end with React and Redux.
+  period: "2020"
+  year: 2020
+  repo: https://github.com/aungkoman/se2020
   technologies:
-    - Node.js
-    - TypeScript
-    - OpenAI
-    - OpenRouter
-    - MongoDB
-    - WebSocket
-  description: 
-    Built an AI-powered futures trading bot that analyzes market data in real-time and executes trades based on machine learning models. 
-    Handles multiple trading pairs, risk management algorithms, and automated position sizing. 
-    The system processes thousands of data points per second while maintaining sub-millisecond latency—trading moves fast.
+    - React
+    - Redux
+    - Styled Components
+
+- slug: op2
+  tier: archive
+  order: 9
+  name: OP2
+  tagline: Cross-platform desktop app that generates single web pages from visual customization, with code import and export.
+  period: "2020"
+  year: 2020
+  repo: https://github.com/RetiFier/op2
+  technologies:
+    - Electron
+    - React
+    - JavaScript

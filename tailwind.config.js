@@ -1,105 +1,41 @@
-const { spacing, fontFamily } = require("tailwindcss/defaultTheme");
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
+/** Design tokens live here and in src/styles/global.css (CSS variables). */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        "blue-start": "#00BAFF",
-        "blue-stop": "#063EF9",
-        "purple-start": "#945BF1",
-        "purple-middle": "#BB48BF",
-        "purple-stop": "#F67E4D",
-        "off-black": "#14142B",
-        "off-white": "#FCFCFC",
-        grey: {
-          0: "#FFFFFF",
-          100: "#FCFCFC",
-          200: "#F7F7FC",
-          300: "#EFF0F7",
-          400: "#D9DBE9",
-          500: "#A0A3BD",
-          600: "#6E7191",
-          700: "#4E4B66",
-          800: "#262338",
-          900: "#14142B",
-        },
+        canvas: "rgb(var(--c-canvas) / <alpha-value>)",
+        surface: "rgb(var(--c-surface) / <alpha-value>)",
+        raised: "rgb(var(--c-raised) / <alpha-value>)",
+        line: "rgb(var(--c-line) / <alpha-value>)",
+        ink: "rgb(var(--c-ink) / <alpha-value>)",
+        muted: "rgb(var(--c-muted) / <alpha-value>)",
+        faint: "rgb(var(--c-faint) / <alpha-value>)",
+        accent: "rgb(var(--c-accent) / <alpha-value>)",
+        signal: "rgb(var(--c-signal) / <alpha-value>)",
       },
       fontFamily: {
-        sans: ["'Basier Circle'", ...fontFamily.sans],
+        display: ["Archivo", "Arial Narrow", ...fontFamily.sans],
+        sans: ["Geist", "Inter", ...fontFamily.sans],
+        mono: ["'Geist Mono'", "ui-monospace", ...fontFamily.mono],
       },
-      listStyleType: {
-        disc: "disc",
-        decimal: "decimal",
+      fontSize: {
+        // Minimum sizes for mono UI text; nothing on screen goes below `label`.
+        label: ["0.75rem", { lineHeight: "1.1rem", letterSpacing: "0.04em" }],
+        meta: ["0.8125rem", { lineHeight: "1.25rem" }],
+        small: ["0.875rem", { lineHeight: "1.35rem" }],
+        eyebrow: ["0.8125rem", { lineHeight: "1.1rem", letterSpacing: "0.08em" }],
       },
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            color: theme("colors.grey.900"),
-            a: {
-              color: theme("colors.grey.900"),
-              "&:hover": {
-                color: theme("colors.grey.700"),
-              },
-              code: { color: theme("colors.blue.400") },
-            },
-            "h2,h3,h4": {
-              "scroll-margin-top": spacing[32],
-            },
-            thead: {
-              borderBottomColor: theme("colors.grey.200"),
-            },
-            code: { color: theme("colors.pink.500") },
-            "blockquote p:first-of-type::before": false,
-            "blockquote p:last-of-type::after": false,
-          },
-        },
-        dark: {
-          css: {
-            color: theme("colors.grey.200"),
-            a: {
-              color: theme("colors.blue.400"),
-              "&:hover": {
-                color: theme("colors.blue.600"),
-              },
-              code: { color: theme("colors.blue.400") },
-            },
-            blockquote: {
-              borderLeftColor: theme("colors.grey.700"),
-              color: theme("colors.grey.300"),
-            },
-            "h2,h3,h4": {
-              color: theme("colors.grey.100"),
-              "scroll-margin-top": spacing[32],
-            },
-            hr: { borderColor: theme("colors.grey.700") },
-            ol: {
-              li: {
-                "&:before": { color: theme("colors.grey.500") },
-              },
-            },
-            ul: {
-              li: {
-                "&:before": { backgroundColor: theme("colors.grey.500") },
-              },
-            },
-            strong: { color: theme("colors.grey.100") },
-            thead: {
-              color: theme("colors.grey.100"),
-              borderBottomColor: theme("colors.grey.600"),
-            },
-            tbody: {
-              tr: {
-                borderBottomColor: theme("colors.grey.700"),
-              },
-            },
-          },
-        },
-      }),
+      maxWidth: {
+        site: "78rem",
+        prose: "40rem",
+      },
+      transitionTimingFunction: {
+        editorial: "cubic-bezier(0.22, 1, 0.36, 1)",
+      },
     },
   },
-  variants: {
-    typography: ["dark"],
-  },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [],
 };

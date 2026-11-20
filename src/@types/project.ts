@@ -1,20 +1,45 @@
-import { IGatsbyImageData } from "gatsby-plugin-image";
+import { ImageFile } from "./image";
 
-interface ProjectDetails {
-  name: string;
-  logo?: {
-    childImageSharp?: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-    publicURL?: string;
-  };
-  url: string;
+export type ProjectTier = "featured" | "selected" | "archive";
+
+export interface ArchitectureLayer {
+  label: string;
+  nodes: string[] | null;
+  detail: string | null;
+}
+
+export interface Decision {
+  title: string;
+  detail: string;
+}
+
+export interface CaseStudy {
+  problem: string[] | null;
+  approach: string[] | null;
+  architecture: ArchitectureLayer[] | null;
+  decisions: Decision[] | null;
+  tradeoffs: string[] | null;
+  outcomes: string[] | null;
+  note: string | null;
 }
 
 export interface ProjectType {
-  project: ProjectDetails;
+  slug: string;
+  tier: ProjectTier;
+  order: number | null;
   name: string;
-  date: string;
-  technologies: string[];
-  description: string;
+  tagline: string | null;
+  category: string | null;
+  status: string | null;
+  period: string | null;
+  year: number | null;
+  role: string | null;
+  url: string | null;
+  repo: string | null;
+  image: ImageFile | null;
+  summary: string | null;
+  highlights: string[] | null;
+  technologies: string[] | null;
+  /** Only the presence of a case study is needed on the home page. */
+  caseStudy: Partial<CaseStudy> | null;
 }

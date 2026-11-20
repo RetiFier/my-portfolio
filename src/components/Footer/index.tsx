@@ -1,48 +1,49 @@
-import React from 'react';
-import { FiMail } from 'react-icons/fi';
-import { ProfileType, SocialType } from '../../@types/about';
-import { getSocialIcon } from '../../utils/socialIcons';
+import React from "react";
+import { Link } from "gatsby";
+import { useSiteData } from "../../hooks/useSiteData";
+import { useShortcutLabel } from "../../hooks/useShortcutLabel";
 
-interface FooterProps {
-  social: SocialType[];
-  profile: ProfileType;
-}
+export const Footer: React.FC = () => {
+  const { fullName, profile, linkedin, github, now } = useSiteData();
+  const year = now.getFullYear();
+  const shortcut = useShortcutLabel();
 
-export const Footer: React.FC<FooterProps> = ({ social, profile }) => {
-  const year = new Date().getFullYear();
+  const links = [
+    linkedin && { label: "LinkedIn", href: linkedin },
+    github && { label: "GitHub", href: github },
+    profile.email && { label: "Email", href: `mailto:${profile.email}` },
+  ].filter(Boolean) as Array<{ label: string; href: string }>;
 
   return (
-    <footer
-      className="py-8 sm:py-12 bg-[#141416] border-t border-[#1e1e1e] text-xs text-[#6b7280]"
-      role="contentinfo"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p>&copy; 2022-{year} {profile.fname} {profile.lname}</p>
-
-        <div className="flex items-center gap-6">
-          {social.map((link) => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#6b7280] hover:text-white transition-colors"
-              aria-label={link.name}
-            >
-              {getSocialIcon(link.name, 'w-4 h-4')}
-            </a>
-          ))}
-
-          {profile.email && (
-            <a
-              href={`mailto:${profile.email}`}
-              className="text-[#6b7280] hover:text-white transition-colors"
-              aria-label="Email"
-            >
-              <FiMail className="w-4 h-4" />
-            </a>
-          )}
+    <footer className="no-print border-t border-line">
+      <div className="container-site flex flex-col gap-6 py-10 text-sm text-muted md:flex-row md:items-center md:justify-between">
+        <div className="space-y-2">
+          <p>
+            © {year} {fullName}. <span className="text-faint">Built with Gatsby; content lives in YAML.</span>
+          </p>
+          <p className="font-mono text-label uppercase tracking-[0.05em] text-faint">
+            build {now.toISOString().slice(0, 10).replace(/-/g, ".")} <span className="mx-1">/</span> press{" "}
+            <span className="kbd">/</span> or <span className="kbd">{shortcut}</span> for the command menu
+          </p>
         </div>
+        <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <li>
+            <Link to="/resume/" className="tap link-underline hover:text-ink">
+              Résumé
+            </Link>
+          </li>
+          {links.map((l) => (
+            <li key={l.label}>
+              <a
+                href={l.href}
+                className="tap link-underline hover:text-ink"
+                {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              >
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </footer>
   );

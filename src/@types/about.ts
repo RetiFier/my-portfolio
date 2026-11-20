@@ -1,50 +1,36 @@
-import { JobType } from "./job";
-import { ProjectType } from "./project";
-import { IGatsbyImageData } from "gatsby-plugin-image";
-
-export interface AboutDataType {
-  data: {
-    profile: ProfileType;
-    social: { nodes: SocialType[] };
-    job: { nodes: JobType[] };
-    project: { nodes: ProjectType[] };
-  };
-  location: Location;
-}
+import { ImageFile } from "./image";
 
 export interface SocialType {
-  name:
-    | "behance"
-    | "dribbble"
-    | "facebook"
-    | "github"
-    | "goodreads"
-    | "medium"
-    | "instagram"
-    | "linkedin"
-    | "producthunt"
-    | "twitter"
-    | "youtube";
+  name: string;
   url: string;
 }
 
+export interface Principle {
+  title: string;
+  text: string;
+}
+
+export interface SkillGroup {
+  title: string;
+  summary: string | null;
+  practice: string[] | null;
+  items: string[] | null;
+}
+
 export interface ProfileType {
-  about: string;
-  company: string;
-  for_hire: boolean;
-  image: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-    publicURL: string;
-  };
-  initials: string;
-  location: string;
+  initials: string | null;
   fname: string;
   lname: string;
   profession: string;
-  relocation: boolean;
-  skills: string[];
-  tools: string[];
-  email?: string;
+  headline: string | null;
+  intro: string | null;
+  resumeSummary?: string | null;
+  careerStart: string | null;
+  image?: ImageFile | null;
+  email: string | null;
+  availability: string | null;
+  focus: string[] | null;
+  about: string[] | null;
+  principles: Principle[] | null;
+  skillGroups: SkillGroup[] | null;
 }

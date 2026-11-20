@@ -1,48 +1,152 @@
+# Profile, positioning and capabilities.
+# `careerStart` drives the "years of experience" figure shown on the site.
 - profile:
     initials: RF
     fname: Reti
     lname: Fier
-    profession: Full Stack Developer
+    profession: Full-Stack Software Engineer
+    headline: Engineering software from architecture to production.
+    intro: >-
+      I build SaaS platforms, AI-powered applications and backend systems,
+      with a focus on practical engineering, maintainability and the
+      complexity that only shows up in real-world use.
+    resumeSummary: >-
+      Full-stack software engineer with 7+ years of experience building SaaS
+      platforms, AI-powered applications and backend systems. Works across the
+      full lifecycle: architecture, APIs and data models, product interfaces,
+      deployment and production maintenance. Recent focus on TypeScript,
+      Node.js, PostgreSQL and AI integrations, with additional experience in
+      financial technology, blockchain tooling and automation.
+    careerStart: "2019-08"
     image: images/icon.png
-    location: Bangkok, Thailand
-    relocation: true
-    company: Deal.ai
     email: dev.retifier@gmail.com
-    for_hire: true
-    about: |
-      I build software that survives reality. Not for demos, not for portfolios. For people who need things to work when it matters. Most code gets written once and read hundreds of times—I build for readers. Problems have contexts, not solutions, and the answers shape the architecture, not the other way around.
-    skills:
-      - React
-      - Next.js
-      - TypeScript
-      - JavaScript
-      - Tailwind CSS
-      - Node.js
-      - Express.js
-      - Fastify
-      - GraphQL
-      - REST APIs
-      - MongoDB
-      - PostgreSQL
-      - Supabase
-      - Redis
-      - Drizzle ORM
-      - Mongoose
-      - WebSocket / Socket.IO
-      - Stripe Integration
-      - AI Integration
-      - WebRTC
-      - Sharp
-      - Solidity
-      - Web3.js
-      - Docker
-      
-    tools:
-      - Visual Studio Code
-      - Git
-      - Docker
-      - Figma
-      - Postman
-      - Prisma
-      - Webpack
-      
+    availability: Open to full-time and contract engineering roles
+    focus:
+      - SaaS platforms
+      - AI-powered products
+      - Backend systems
+      - Fintech & automation
+    about:
+      - >-
+        I'm a full-stack software engineer with more than seven years of
+        experience building SaaS platforms, AI-powered products and the backend
+        systems behind them. Most of my work sits where product requirements
+        meet system design: how the data should be modeled, where a boundary
+        belongs, and what has to stay true for a feature to keep working long
+        after launch.
+      - >-
+        I work across the whole lifecycle: architecture, APIs and data models,
+        the interfaces people actually use, and the deployment, debugging and
+        maintenance that come after. Along the way that has meant an AI content
+        platform, blockchain treasury tooling, financial data pipelines, a
+        point-of-sale system and, today, independent contract work on
+        commercial web applications.
+      - >-
+        Outside client work I build my own products end to end. Kanonara is a
+        long-form writing platform where AI analysis assists authors without
+        ever silently changing their story. Synthetic Instinct is a trading
+        research system built around execution safety, risk controls and
+        honest evaluation. Both are deliberate exercises in the engineering I
+        care about most: explicit boundaries, careful failure handling, and
+        systems that are still easy to reason about a year later.
+    principles:
+      - title: Model the problem first
+        text: >-
+          Architecture starts with the domain: the data, the workflows and the
+          ways they fail. The stack follows from that, not the other way round.
+      - title: Design for the second year
+        text: >-
+          Code is changed far more often than it is written. Clear boundaries,
+          typed contracts and tests that pin behavior keep the next change cheap.
+      - title: Own it in production
+        text: >-
+          Shipping is the midpoint. Deployment, debugging and maintenance are
+          part of the work, and I plan for them from the first commit.
+      - title: Make AI earn its place
+        text: >-
+          AI features get the same discipline as any other dependency: bounded
+          inputs, fallbacks, and a person in control of anything that matters.
+    skillGroups:
+      - title: Frontend Engineering
+        summary: >-
+          Product interfaces that stay fast and maintainable as features pile up,
+          from server-rendered web apps to React Native mobile.
+        practice:
+          - User-facing applications for an AI content platform at deal.ai
+          - Author workspace, reader and admin console for Kanonara
+          - Interfaces built from Figma designs, plus React Native apps for Android
+        items:
+          - React
+          - Next.js
+          - TypeScript
+          - JavaScript
+          - Tailwind CSS
+          - Redux
+          - React Native
+          - Gatsby
+      - title: Backend Engineering
+        summary: >-
+          APIs and services with explicit contracts, sensible module boundaries
+          and behavior that is pinned by tests.
+        practice:
+          - Fastify API organized as feature modules with typed request schemas
+          - Node.js and Express services behind AI and financial data products
+          - Real-time and event-driven work over WebSockets and bots
+        items:
+          - Node.js
+          - Fastify
+          - Express.js
+          - REST APIs
+          - GraphQL
+          - Zod
+          - WebSockets / Socket.IO
+          - System design
+      - title: Databases & Data
+        summary: >-
+          Data models shaped around how a product evolves, plus the pipelines
+          that collect, clean and serve the data.
+        practice:
+          - Relational story models with history and SQL migrations (PostgreSQL, Drizzle)
+          - Document models for platform, trading and treasury data (MongoDB)
+          - Scraping pipelines over public financial data
+        items:
+          - PostgreSQL
+          - MongoDB
+          - Mongoose
+          - Drizzle ORM
+          - Redis
+          - Supabase
+          - Database modeling
+      - title: Infrastructure & Delivery
+        summary: >-
+          Getting software into production and keeping it healthy: containers,
+          automated checks, deployment and the maintenance that follows.
+        practice:
+          - CI pipelines that run type checks, tests and deploys on every merge
+          - Containerized services deployed to managed platforms
+          - Unit, contract and browser end-to-end test suites
+        items:
+          - Docker
+          - GitHub Actions
+          - Fly.io
+          - Vercel
+          - Jest
+          - Vitest
+          - Playwright
+          - Git
+      - title: Specialized Engineering
+        summary: >-
+          Domains where correctness and failure handling matter more than usual.
+        practice:
+          - LLM extraction with model routing and fallback chains
+          - Exchange integration, risk controls and backtesting for crypto futures
+          - On-chain monitoring, airdrop automation and notification bots
+        items:
+          - AI integrations
+          - OpenRouter
+          - Automation & bots
+          - Financial technology
+          - CCXT / exchange APIs
+          - Web3.js
+          - Ethers.js
+          - Stripe

@@ -1,43 +1,44 @@
-import React, { ReactNode } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { SocialType, ProfileType } from '../@types/about';
-import { nightOwl } from '../theme/nightOwl';
-import { Footer } from './Footer';
-import { AccessibilityProvider } from './Accessibility/AccessibilityProvider';
+import React from "react";
+import { MotionConfig } from "framer-motion";
+import { Navigation } from "./Navigation";
+import { Footer } from "./Footer";
+import { ScrollProgress } from "./ScrollProgress";
+import { CommandPalette } from "./CommandPalette";
+import { Hud } from "./Hud";
+import { Explore } from "./Explore";
+import { Toaster } from "./Toaster";
+import { useSiteData } from "../hooks/useSiteData";
 
 interface LayoutProps {
   children: React.ReactNode;
-  social: SocialType[];
-  profile: ProfileType;
-  location: Location;
-  showFooter?: boolean;
+  /** Pass the page's `location.pathname` so navigation knows if it is on the home page. */
+  pathname: string;
+  showProgress?: boolean;
 }
 
-export const Layout: React.FC<LayoutProps> = ({
-  children,
-  social,
-  profile,
-  location,
-  showFooter = true,
-}) => {
-  return (
-    <AccessibilityProvider>
-      <div className="min-h-screen text-[#f0f0f0]" style={{ backgroundColor: nightOwl.bg }}>
-        <AnimatePresence mode="wait">
-          <motion.main
-            key={location.pathname}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="relative"
-          >
-            {children}
-          </motion.main>
-        </AnimatePresence>
+export const Layout: React.FC<LayoutProps> = ({ children, pathname, showProgress = true }) => {
+  const { fullName } = useSiteData();
+  const isHome = pathname === "/" || pathname === "";
 
-        {showFooter && <Footer social={social} profile={profile} />}
-      </div>
-    </AccessibilityProvider>
+
+  return (
+    <MotionConfig reducedMotion="user">
+      <a
+        href="#main-content"
+        className="no-print sr-only z-[100] bg-ink px-4 py-2 text-sm text-canvas focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+      >
+        Skip to content
+      </a>
+      {showProgress && <ScrollProgress />}
+      <Navigation isHome={isHome} name={fullName} />
+      <main id="main-content" tabIndex={-1} className="outline-none">
+        {children}
+      </main>
+      <Footer />
+      <Hud isHome={isHome} />
+      <CommandPalette isHome={isHome} />
+      <Explore isHome={isHome} />
+      <Toaster />
+    </MotionConfig>
   );
 };

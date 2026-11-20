@@ -1,108 +1,118 @@
 import React from "react";
-import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import { useSiteData } from "../../hooks/useSiteData";
 
-export function SEO({
-  description = "Personal Website of JavaScript Developer",
-  lang = "en",
-  meta = [],
-  title,
-  keywords = "",
-}: SEOProps) {
-  const { site } = useStaticQuery<QueryTypes>(SEOStaticQuery);
-
-  const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
-
-  return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-        ...(keywords ? [{ name: `keywords`, content: keywords }] : []),
-      ].concat(meta)}
-    />
-  );
+interface SeoProps {
+  title?: string;
+  description?: string;
+  pathname?: string;
+  image?: string;
+  type?: "website" | "article" | "profile";
+  /** Adds Person + WebSite structured data (home page). */
+  person?: boolean;
+  /** Breadcrumb trail for inner pages, e.g. [{ name: "Work", path: "/#work" }]. */
+  breadcrumbs?: Array<{ name: string; path: string }>;
+  noindex?: boolean;
+  children?: React.ReactNode;
 }
 
-// Types
-type SEOProps = {
-  description?: string;
-  lang?: string;
-  meta?: Meta;
-  title: string;
-  keywords?: string;
-};
+/**
+ * Document head for Gatsby's Head API. Use inside a page's `export const Head`.
+ */
+export const Seo: React.FC<SeoProps> = ({
+  title,
+  description,
+  pathname = "/",
+  image,
+  type = "website",
+  person = false,
+  breadcrumbs,
+  noindex = false,
+  children,
+}) => {
+  const { site, profile, fullName, social } = useSiteData();
+  const siteUrl = site.siteUrl.replace(/\/$/, "");
+  const fullTitle = title ? `${title} — ${site.title}` : `${fullName} — ${profile.profession}`;
+  const metaDescription = description || site.description;
+  const url = `${siteUrl}${pathname}`;
+  const imageUrl = `${siteUrl}${image || site.image}`;
 
-type Meta = ConcatArray<PropertyMetaObj | NameMetaObj>;
-
-type PropertyMetaObj = {
-  property: string;
-  content: string;
-};
-
-type NameMetaObj = {
-  name: string;
-  content: string;
-};
-
-type QueryTypes = {
-  site: {
-    siteMetadata: {
-      title: string;
-      description: string;
-      author: string;
-    };
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${siteUrl}/#person`,
+    name: fullName,
+    jobTitle: profile.profession,
+    description: site.description,
+    image: imageUrl,
+    url: siteUrl,
+    email: profile.email ? `mailto:${profile.email}` : undefined,
+    sameAs: social.map((s) => s.url),
+    knowsAbout: [
+      "Full-stack development",
+      "SaaS platforms",
+      "Backend systems",
+      "Software architecture",
+      "AI integrations",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+    ],
   };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: site.title,
+    url: siteUrl,
+    inLanguage: "en",
+    author: { "@id": `${siteUrl}/#person` },
+  };
+
+  const breadcrumbSchema = breadcrumbs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [{ name: fullName, path: "/" }, ...breadcrumbs].map((b, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: b.name,
+          item: `${siteUrl}${b.path}`,
+        })),
+      }
+    : null;
+
+  return (
+    <>
+      <title>{fullTitle}</title>
+      <meta name="author" content={fullName} />
+      <meta name="description" content={metaDescription} />
+      <link rel="canonical" href={url} />
+      {noindex && <meta name="robots" content="noindex" />}
+
+      <meta property="og:site_name" content={site.title} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={url} />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={`${fullName}, ${profile.profession}`} />
+      <meta property="og:locale" content="en_US" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={imageUrl} />
+
+      {person && <script type="application/ld+json">{JSON.stringify(personSchema)}</script>}
+      {person && <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>}
+      {breadcrumbSchema && <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>}
+      {children}
+    </>
+  );
 };
 
-// Export alias for compatibility
-export const Seo = SEO;
-
-// Queries
-const SEOStaticQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        description
-        author
-      }
-    }
-  }
-`;
+export default Seo;

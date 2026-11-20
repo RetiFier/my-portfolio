@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio-serve",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["gatsby", "serve", "--port", "9000"],
+      "port": 9000
+    }
+  ]
+}

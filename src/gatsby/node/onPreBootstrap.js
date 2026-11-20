@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-module.exports = ({ reporter }, options) => {
+module.exports = ({ reporter }, options = {}) => {
   let contentPath = options.contentPath || "content/";
 
   if (!contentPath.endsWith("/")) {
@@ -12,18 +12,10 @@ module.exports = ({ reporter }, options) => {
     fs.mkdirSync(contentPath);
     fs.mkdirSync(`${contentPath}images`);
 
-    const filesToCopy = [
-      "profile.yaml",
-      "projects.yaml",
-      "social.yaml",
-      "job.yaml",
-    ];
+    const filesToCopy = ["profile.yaml", "project.yaml", "social.yaml", "job.yaml"];
 
     filesToCopy.forEach((file) =>
-      fs.copyFileSync(
-        `${__dirname}/../../../content/${file}`,
-        `${contentPath}${file}`,
-      ),
+      fs.copyFileSync(`${__dirname}/../../../content/${file}`, `${contentPath}${file}`),
     );
   }
 };

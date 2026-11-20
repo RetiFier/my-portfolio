@@ -1,11 +1,7 @@
-import { IGatsbyImageData } from "gatsby-plugin-image";
+import { ImageFile } from "./image";
 
 export interface CompanyType {
   name: string;
-  url: string;
-  logo: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
+  url: string | null;
+  logo: ImageFile | null;
 }

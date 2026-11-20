@@ -1,125 +1,180 @@
+# Professional experience.
+#
+# Ordering: entries are rendered by `order` (ascending), most relevant first.
+# Dates use ISO "YYYY-MM" so they parse identically in every browser.
+# - toDate: omit (or leave empty) together with `current: true` for a current role.
+# - toDate omitted and `current` false renders the start date only
+#   (used where an end date is not confirmed).
+# Logos are resolved relative to this file (content/images/...).
 ---
-- company:
-    name: Zino Tech
-    logo: images/zino.png
-    url: https://www.zino.tech/
-  jobTitle: Junior React Developer
-  fromDate: Aug 2019
-  toDate: Mar 2020
+- order: 1
+  company:
+    name: Self-employed
+  jobTitle: Independent Software Engineer
+  employmentType: Contract
+  workplace: Remote
+  fromDate: "2026-01"
+  current: true
+  summary: >-
+    Full-stack engineering for commercial web applications and SaaS products,
+    carrying work from product requirements through architecture,
+    implementation, deployment and long-term maintenance.
+  highlights:
+    - Design APIs, database models and third-party integrations around the workflows a product actually depends on.
+    - Build and maintain frontend applications, backend services and the infrastructure they run on.
+    - Turn product requirements into technical plans, making the tradeoff between delivery speed and long-term maintainability explicit.
+    - Own testing, debugging, deployment and production maintenance across the application lifecycle.
   technologies:
+    - TypeScript
     - React
-    - React Native
-    - Next JS
-    - Redux
-    - Express JS
-    - REST API
-  description:
-    First real development job meant learning in public. Built Android apps and web interfaces, figured out that React Native isn't just "web on mobile" when done right, 
-    and managed a point-of-sale system that handled real transactions. Small team, high responsibility—learned more in eight months than four years of tutorials could teach.
-    
-- company:
-    name: WunderTek
-    logo: images/wundertek.jpg
-    url: https://wundertek.tech/
-  jobTitle: Full Stack Developer
-  fromDate: May 2020
-  toDate: Aug 2021
-  technologies:
-    - React
-    - Next JS
-    - Redux
-    - Express JS
-    - REST API
-    - MongoDB
-  description:
-    Full-stack means you own problems end-to-end. I learned this building UIs from Figma specs and the APIs to back them. 
-    Focused on making things actually work together—frontend talks to backend, database schema matches user needs, 
-    tests catch real bugs not just edge cases. Left with a system that handled production traffic from day one.
+    - Node.js
+    - REST APIs
+  note: Some engagements are under NDA, so client names and project details are not listed.
 
-- company:
-    name: Mehr Capital
-    logo: images/mehr.jpeg
-    url: https://www.linkedin.com/company/mehrcapital/
-  jobTitle: Full Stack Developer
-  fromDate: Aug 2022
-  toDate: Nov 2022
+- order: 2
+  company:
+    name: deal.ai
+    logo: images/dealai.png
+    url: https://www.deal.ai/
+  jobTitle: Full Stack Engineer
+  employmentType: Full-time
+  workplace: Remote
+  fromDate: "2023-04"
+  toDate: "2025-09"
+  summary: >-
+    Full-stack engineer on an AI-powered platform built from the ground up,
+    working across the frontend and backend systems behind content generation,
+    integrations and custom web applications.
+  highlights:
+    - Implemented AI-driven content-generation features and integrated external APIs into product workflows.
+    - Built user-facing applications with React, Next.js, TypeScript and Tailwind CSS, backed by Node.js and Express.js services.
+    - Helped establish the application architecture and the services and data flows behind core product features.
+    - Maintained the platform across the stack, resolving issues, refining the user experience and contributing scalability improvements.
   technologies:
     - React
+    - Next.js
     - TypeScript
     - Tailwind CSS
-    - Next JS
-    - Redux
-    - Express JS
-    - REST API
-    - Mongoose
-  description:
-    Financial data is messy. APIs are incomplete. Time zones break everything. 
-    Built a crypto platform that handled all three—scraped 10,000 company descriptions when APIs failed, 
-    managed real-time price updates across multiple domains, and dealt with the reality that "time-sensitive" means "it breaks at 3 AM on Sunday." 
-    Learned that production isn't about writing perfect code—it's about writing code you can fix quickly.
-    
-- company:
-    name: WunderTek
-    logo: images/wundertek.jpg
-    url: https://wundertek.tech/
-  jobTitle: Freelance Full Stack Developer
-  fromDate: Apr 2022
-  toDate: Present
-  technologies:
-    - React
-    - Next JS
-    - Redux
-    - Express JS
-    - REST API
+    - Node.js
+    - Express.js
     - MongoDB
-  description:
-    Good freelance relationships are rare. WunderTek brought me back because I delivered what I said I would, when I said I would. 
-    Continued working on full-stack projects, building on the foundation we established during my first tenure. 
-    Trust is the scarcest resource in tech—you earn it by showing up and shipping.
+    - GraphQL
 
-
-
-- company:
-    name: Veloce (VEXT Crypto)
+- order: 3
+  company:
+    name: VEXT
     logo: images/veloce.png
-    url: https://www.veloce.gg/vext/
-  jobTitle: Freelance Full Stack Developer
-  fromDate: Aug 2023
-  toDate: Jan 2024
+  jobTitle: Full Stack Engineer
+  employmentType: Freelance
+  workplace: Remote
+  fromDate: "2023-08"
+  toDate: "2024-01"
+  summary: >-
+    Built blockchain analysis and automation tooling for a treasury team,
+    covering token distribution and the monitoring of on-chain activity.
+  highlights:
+    - Automated airdrop and token-distribution workflows for treasury operations.
+    - Built notification bots that track on-chain transactions and wallet activity.
+    - Wrote analysis scripts that flag irregular wallet activity for review.
+    - Integrated on-chain data into backend tools for transaction analysis and monitoring.
   technologies:
     - Node.js
     - TypeScript
     - Python
     - Web3.js
     - Ethers.js
-    - Solidity
     - MongoDB
-  description:
-    Crypto teams move money, not just data. Worked with treasury operations to build systems that detect anomalies before they become losses. 
-    Automated airdrops instead of manual spreadsheet gymnastics, built transaction monitoring that catches patterns humans miss, 
-    and learned that in blockchain, "irregularity" usually means someone's about to lose everything. 
-    Built tools that made finance teams sleep better.
-    
-- company:
-    name: Deal.ai
-    logo: images/dealai.png
-    url: https://www.deal.ai/
+
+- order: 4
+  company:
+    name: Mehr Capital
+    logo: images/mehr.jpeg
+    url: https://www.linkedin.com/company/mehrcapital/
   jobTitle: Full Stack Developer
-  fromDate: Jan 2023
-  toDate: Present
+  employmentType: Full-time
+  fromDate: "2022-08"
+  toDate: "2022-11"
+  summary: >-
+    Developed cryptocurrency and stock-market data applications, combining
+    product development with automated collection of public financial data.
+  highlights:
+    - Built a cryptocurrency price website that served multiple domains from a single codebase.
+    - Wrote a Node.js scraping pipeline that collected public data, including more than 10,000 company descriptions and live stock prices.
+    - Built the interfaces and backend workflows that processed and presented financial data.
+    - Maintained application security and shipped time-sensitive updates.
   technologies:
     - React
-    - Next JS
+    - Next.js
     - TypeScript
     - Tailwind CSS
     - Node.js
-    - Express JS
-    - REST API
+    - Express.js
     - MongoDB
-    - GraphQL
-  description:
-    Building from zero means every decision sticks. Architecture choices made in month one are the foundation or the debt in month twelve. 
-    Helping shape Deal.ai from initial commit to shipped product—frontend, backend, the glue between them. 
-    Working with AI integrations that felt impossible a year ago, solving problems that didn't exist when I started. 
-    This is what I was building toward during that gap year.
 
+- order: 5
+  company:
+    name: WunderTEK
+    logo: images/wundertek.jpg
+    url: https://wundertek.tech/
+  jobTitle: Full Stack Developer
+  employmentType: Freelance
+  fromDate: "2022-04"
+  summary: >-
+    Returned to WunderTEK as a freelance engineer on client projects,
+    working across frontend and backend implementation.
+  highlights:
+    - Built interfaces and application features with React, Next.js and Redux.
+    - Developed backend functionality with Express.js and MongoDB.
+    - Turned project requirements into working features delivered to agreed timelines.
+  technologies:
+    - React
+    - Next.js
+    - Redux
+    - Express.js
+    - MongoDB
+
+- order: 6
+  company:
+    name: WunderTEK
+    logo: images/wundertek.jpg
+    url: https://wundertek.tech/
+  jobTitle: Full Stack Developer
+  employmentType: Full-time
+  fromDate: "2020-05"
+  toDate: "2021-08"
+  summary: >-
+    Full-stack development across web applications: translating Figma designs
+    into interfaces and building the APIs and database integrations behind them.
+  highlights:
+    - Implemented frontend interfaces from Figma designs.
+    - Built APIs and database integrations with Express.js and MongoDB.
+    - Used testing libraries across frontend and backend to verify application behavior.
+  technologies:
+    - React
+    - Next.js
+    - Redux
+    - Express.js
+    - REST APIs
+    - MongoDB
+
+- order: 7
+  company:
+    name: Zino Tech
+    logo: images/zino.png
+    url: https://www.zino.tech/
+  jobTitle: Junior React Developer
+  employmentType: Full-time
+  fromDate: "2019-08"
+  toDate: "2020-03"
+  summary: >-
+    First professional role, as part of a software engineering team building
+    web interfaces and Android applications.
+  highlights:
+    - Built application features with React, React Native and Express.js.
+    - Collaborated on developing and maintaining a point-of-sale system built with React and Next.js.
+  technologies:
+    - React
+    - React Native
+    - Next.js
+    - Redux
+    - Express.js

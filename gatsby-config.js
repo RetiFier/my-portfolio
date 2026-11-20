@@ -1,12 +1,14 @@
 /** @type {import('gatsby').GatsbyConfig} */
 module.exports = {
   siteMetadata: {
-    description: "Personal page of Reti Fier",
-    locale: "en",
     title: "Reti Fier",
+    description:
+      "Full-stack software engineer with 7+ years building SaaS platforms, AI-powered applications and backend systems, from architecture to production.",
+    locale: "en",
     author: "Reti Fier",
-    name: "Reti Fier Portfolio",
-    siteUrl: `https://retifier.com/`,
+    name: "Reti Fier — Full-Stack Software Engineer",
+    siteUrl: `https://retifier.dev`,
+    image: "/og-image.png",
   },
   plugins: [
     {
@@ -14,30 +16,19 @@ module.exports = {
       options: {
         trackingIds: ["G-JVTZMNERDB"],
         gtagConfig: {
-          optimize_id: "OPT-W2TVR6F",
           anonymize_ip: true,
           cookie_expires: 0,
         },
         pluginConfig: {
           head: false,
-
           respectDNT: true,
-
-          exclude: ["/preview/**", "/do-not-track/me/too/"],
         },
       },
     },
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-postcss",
     "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
     `gatsby-transformer-yaml`,
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        precachePages: [`/`],
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -57,6 +48,12 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
+        name: "Reti Fier — Full-Stack Software Engineer",
+        short_name: "Reti Fier",
+        start_url: "/",
+        background_color: "#0a0a0a",
+        theme_color: "#0a0a0a",
+        display: "minimal-ui",
         icon: "content/images/icon.svg",
       },
     },
