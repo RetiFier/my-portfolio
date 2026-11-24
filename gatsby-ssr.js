@@ -1,4 +1,5 @@
 const React = require("react");
+const { Analytics } = require("@vercel/analytics/react");
 
 const FONT_URL =
   "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap";
@@ -16,4 +17,16 @@ exports.onRenderBody = ({ setHtmlAttributes, setHeadComponents }) => {
     <link key="gf-fonts" rel="stylesheet" href={FONT_URL} />,
     <meta key="theme-color" name="theme-color" content="#0a0a0a" />,
   ]);
+};
+
+/**
+ * Wraps every page with Vercel Analytics component
+ */
+exports.wrapPageElement = ({ element }) => {
+  return (
+    <>
+      {element}
+      <Analytics />
+    </>
+  );
 };
