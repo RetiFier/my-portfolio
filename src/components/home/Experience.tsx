@@ -74,7 +74,7 @@ const Role: React.FC<{ job: JobType; open: boolean; onToggle: () => void }> = ({
           <div className="flex items-start gap-4">
             <CompanyMark job={job} />
             <div className="min-w-0 flex-1">
-              <h3 className="font-display text-2xl font-semibold leading-tight tracking-[-0.02em] text-ink sm:text-[1.75rem]">{job.jobTitle}</h3>
+              <h3 className="display text-[1.4rem] leading-tight text-ink sm:text-[1.6rem]">{job.jobTitle}</h3>
               <p className="mt-1 text-[0.95rem] text-muted">
                 {job.company.url ? (
                   <a

@@ -73,7 +73,7 @@ export const OperatorBoundary: React.FC = () => {
                 </span>
                 <div className={`grid gap-x-6 gap-y-1 transition-opacity duration-300 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] ${reached ? "opacity-100" : "opacity-40"}`}>
                   <p>
-                    <span className="font-display text-lg font-semibold uppercase tracking-[-0.01em] text-ink">{h.node}</span>
+                    <span className="font-display text-lg font-[760] [font-stretch:104%] uppercase tracking-[-0.01em] text-ink">{h.node}</span>
                     <span className="mt-0.5 block font-mono text-label uppercase text-muted">{h.role}</span>
                   </p>
                   <p className="font-mono text-meta text-ink/85">{h.check}</p>

@@ -29,7 +29,9 @@
   }
 
   body {
-    @apply bg-canvas font-sans text-[1.0625rem] leading-relaxed text-ink antialiased;
+    /* Two typefaces site-wide: Archivo for display headings, Geist Mono for
+       everything else. The résumé sheet (.paper) keeps Geist for print. */
+    @apply bg-canvas font-mono text-[1rem] leading-relaxed text-ink antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
@@ -272,6 +274,7 @@
 
 /* Light "paper" scope for the résumé sheet on screen. */
 .paper {
+  font-family: Geist, Inter, ui-sans-serif, system-ui, sans-serif;
   --c-canvas: 255 255 253;
   --c-surface: 250 249 246;
   --c-raised: 243 242 238;

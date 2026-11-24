@@ -235,7 +235,7 @@ const NotFoundPage: React.FC<PageProps> = ({ location }) => {
           <p className="display mt-6 text-[clamp(6rem,30vw,11rem)] leading-none text-ink lg:text-[12rem]" aria-hidden="true">
             <YearOdometer value={code} animate={rollIn} stagger={110} />
           </p>
-          <h1 className="rise mt-6 font-display text-3xl font-semibold uppercase leading-tight tracking-[-0.01em] text-ink sm:text-4xl" style={{ animationDelay: "120ms" }}>
+          <h1 className="rise mt-6 font-display text-3xl font-[760] [font-stretch:104%] uppercase leading-tight tracking-[-0.01em] text-ink sm:text-4xl" style={{ animationDelay: "120ms" }}>
             404: this route doesn't exist
           </h1>
           <p className="rise mt-4 max-w-prose text-lg leading-relaxed text-muted" style={{ animationDelay: "200ms" }}>

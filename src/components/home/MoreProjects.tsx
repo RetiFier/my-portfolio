@@ -92,7 +92,7 @@ export const MoreProjects: React.FC<{ selected: ProjectType[]; archive: ProjectT
                     className="absolute inset-y-0 -left-4 -right-4 -z-10 origin-left scale-x-0 bg-surface transition-transform duration-500 ease-editorial group-hover:scale-x-100"
                   />
                   <span className="font-mono text-small text-faint md:col-span-1">{p.year}</span>
-                  <span className="flex items-center gap-1.5 font-display text-xl font-semibold tracking-[-0.02em] text-ink transition-[color,transform] duration-500 ease-editorial group-hover:translate-x-2 group-hover:text-accent md:col-span-3">
+                  <span className="display flex items-center gap-1.5 text-lg text-ink transition-[color,transform] duration-500 ease-editorial group-hover:translate-x-2 group-hover:text-accent md:col-span-3">
                     {p.name}
                     <FiArrowUpRight aria-hidden="true" className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
                   </span>

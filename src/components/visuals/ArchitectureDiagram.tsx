@@ -27,7 +27,7 @@ export const ArchitectureDiagram: React.FC<{ layers: ArchitectureLayer[]; title:
               {i + 1}
             </span>
             <div>
-              <p className="font-display text-lg font-semibold uppercase tracking-[-0.01em] text-ink">{layer.label}</p>
+              <p className="font-display text-lg font-[760] [font-stretch:104%] uppercase tracking-[-0.01em] text-ink">{layer.label}</p>
               {layer.detail && <p className="mt-1 text-sm leading-relaxed text-muted">{layer.detail}</p>}
             </div>
           </div>

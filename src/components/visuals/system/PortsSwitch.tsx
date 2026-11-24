@@ -38,7 +38,7 @@ export const PortsSwitch: React.FC = () => {
         {/* the unchanging core */}
         <div className="flex flex-col justify-center bg-canvas/60 p-4 sm:p-5">
           <p className="font-mono text-label uppercase tracking-[0.05em] text-muted">Decision core</p>
-          <p className="mt-2 font-display text-xl font-semibold uppercase tracking-[-0.01em] text-ink">Same code in both modes</p>
+          <p className="mt-2 font-display text-xl font-[760] [font-stretch:104%] uppercase tracking-[-0.01em] text-ink">Same code in both modes</p>
           <ol className="mt-4 space-y-1.5 font-mono text-meta text-ink/90">
             {["evaluate candidates", "rank once", "emit ordered trace", "submit intents"].map((s, i) => (
               <li key={s} className="flex gap-2">

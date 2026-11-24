@@ -46,7 +46,7 @@ const DeepDiveBody: React.FC<{ dive: DeepDive }> = ({ dive }) => (
       <dl className="mt-10 grid gap-x-10 border-t border-line md:grid-cols-2">
         {dive.points.map((p) => (
           <Reveal key={p.title} className="border-b border-line py-5">
-            <dt className="font-display text-base font-semibold uppercase tracking-[-0.01em] text-ink">{p.title}</dt>
+            <dt className="font-display text-base font-[760] [font-stretch:104%] uppercase tracking-[-0.01em] text-ink">{p.title}</dt>
             <dd className="mt-2 leading-relaxed text-muted">{p.detail}</dd>
           </Reveal>
         ))}
@@ -140,7 +140,7 @@ const CaseStudyPage: React.FC<PageProps<CaseStudyData>> = ({ data, location }) =
             <SplitText text={project.name} mode="css" delay={0.1} stagger={0.03} />
           </h1>
           {project.tagline && (
-            <p className="rise mt-6 max-w-3xl text-2xl leading-snug tracking-[-0.01em] text-muted sm:text-3xl" style={{ animationDelay: "200ms" }}>
+            <p className="rise mt-6 max-w-3xl text-xl leading-normal tracking-[-0.02em] text-muted sm:text-2xl" style={{ animationDelay: "200ms" }}>
               {project.tagline}
             </p>
           )}
@@ -230,7 +230,7 @@ const CaseStudyPage: React.FC<PageProps<CaseStudyData>> = ({ data, location }) =
                             className="bg-canvas p-6 transition-colors hover:bg-surface sm:p-7 md:[&:last-child:nth-child(odd)]:col-span-2"
                           >
                             <span className="tag">D{String(di + 1).padStart(2, "0")}</span>
-                            <h3 className="mt-4 font-display text-lg font-semibold uppercase tracking-[-0.01em] text-ink">{d.title}</h3>
+                            <h3 className="mt-4 font-display text-lg font-[760] [font-stretch:104%] uppercase tracking-[-0.01em] text-ink">{d.title}</h3>
                             <p className="mt-3 leading-relaxed text-muted">{d.detail}</p>
                           </Reveal>
                         ))}

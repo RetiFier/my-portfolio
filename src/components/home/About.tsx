@@ -23,7 +23,7 @@ export const About: React.FC<{ profile: ProfileType }> = ({ profile }) => {
         <div className="md:col-span-8 md:col-start-4">
           {first && (
             <Reveal>
-              <p className="text-2xl font-normal leading-[1.4] tracking-[-0.01em] text-ink sm:text-[1.8rem]">{first}</p>
+              <p className="text-xl font-normal leading-[1.5] tracking-[-0.02em] text-ink sm:text-[1.45rem]">{first}</p>
             </Reveal>
           )}
           <div className="mt-8 space-y-6 md:columns-2 md:gap-10 md:space-y-0">
@@ -74,7 +74,7 @@ export const About: React.FC<{ profile: ProfileType }> = ({ profile }) => {
                   className="absolute left-0 top-0 h-px w-0 bg-accent transition-[width] duration-700 ease-editorial group-hover:w-full"
                 />
                 <ScrambleText text={String(i + 1).padStart(2, "0")} delay={i * 120} className="font-mono text-meta text-accent" />
-                <h3 className="mt-4 font-display text-xl font-semibold uppercase tracking-[-0.01em] text-ink transition-transform duration-500 ease-editorial group-hover:translate-x-1">{p.title}</h3>
+                <h3 className="mt-4 font-display text-xl font-[760] [font-stretch:104%] uppercase tracking-[-0.01em] text-ink transition-transform duration-500 ease-editorial group-hover:translate-x-1">{p.title}</h3>
                 <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">{p.text}</p>
               </motion.li>
             ))}

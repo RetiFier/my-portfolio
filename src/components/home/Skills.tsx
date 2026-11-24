@@ -161,7 +161,7 @@ export const Skills: React.FC<{ groups: SkillGroup[] }> = ({ groups }) => {
                 <span className={`font-mono text-meta ${selected ? "text-accent" : "text-faint"}`}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className={`font-display text-2xl font-semibold uppercase tracking-[-0.02em] ${selected ? "text-ink" : "text-muted group-hover:text-ink"}`}>
+                <span className={`font-display text-2xl font-[760] [font-stretch:104%] uppercase tracking-[-0.02em] ${selected ? "text-ink" : "text-muted group-hover:text-ink"}`}>
                   {g.title}
                 </span>
                 {selected && (
@@ -197,7 +197,7 @@ export const Skills: React.FC<{ groups: SkillGroup[] }> = ({ groups }) => {
           <Reveal key={g.title} className="border border-line p-6">
             <div className="flex items-baseline gap-4">
               <span className="font-mono text-meta text-accent">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="font-display text-2xl font-semibold uppercase tracking-[-0.02em] text-ink">{g.title}</h3>
+              <h3 className="font-display text-2xl font-[760] [font-stretch:104%] uppercase tracking-[-0.02em] text-ink">{g.title}</h3>
             </div>
             <div className="mt-5">
               <SkillDetail group={g} compact />
@@ -212,7 +212,7 @@ export const Skills: React.FC<{ groups: SkillGroup[] }> = ({ groups }) => {
 const SkillDetail: React.FC<{ group: SkillGroup; compact?: boolean; hideItems?: boolean }> = ({ group, compact, hideItems }) => (
   <div className={hideItems ? "mt-6" : undefined}>
     {group.summary && (
-      <p className={`${compact ? "text-base" : "text-2xl leading-snug tracking-[-0.01em]"} text-ink`}>{group.summary}</p>
+      <p className={`${compact ? "text-base" : "text-xl leading-normal tracking-[-0.02em]"} text-ink`}>{group.summary}</p>
     )}
     {group.practice?.length ? (
       <div className="mt-7">
