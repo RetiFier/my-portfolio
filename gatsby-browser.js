@@ -1,4 +1,6 @@
 import "./src/styles/global.css";
+import React from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 /**
  * The site no longer uses a service worker (gatsby-plugin-offline was removed
@@ -22,4 +24,16 @@ export const onClientEntry = () => {
       )
       .catch(() => {});
   }
+};
+
+/**
+ * Wraps every page with Vercel Analytics component
+ */
+export const wrapPageElement = ({ element }) => {
+  return (
+    <>
+      {element}
+      <Analytics />
+    </>
+  );
 };

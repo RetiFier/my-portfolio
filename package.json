@@ -16,6 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.4.1",
     "date-fns": "^4.1.0",
     "framer-motion": "^10.16.16",
     "gatsby": "^5.15.0",
