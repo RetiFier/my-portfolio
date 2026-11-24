@@ -65,7 +65,7 @@ export const ScrambleText: React.FC<ScrambleTextProps> = ({
   return (
     <span ref={ref} className={className}>
       <span className="sr-only">{text}</span>
-      <span aria-hidden="true" className="glyph whitespace-pre" data-g={display} />
+      <span aria-hidden="true" className="glyph whitespace-pre-wrap" data-g={display} />
     </span>
   );
 };

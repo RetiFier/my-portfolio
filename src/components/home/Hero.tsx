@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ profile, jobs, productCount }) => {
       <div className="container-site relative">
         <div className="rise flex flex-wrap items-center justify-between gap-3 font-mono text-meta uppercase tracking-[0.05em] text-muted" style={delay(0)}>
           {profile.availability && (
-            <p className="tag normal-case tracking-normal">
+            <p className="tag max-w-full items-start py-1.5 normal-case leading-snug tracking-normal">
               <span aria-hidden="true" className="text-accent">
                 /
               </span>
@@ -86,7 +86,10 @@ export const Hero: React.FC<HeroProps> = ({ profile, jobs, productCount }) => {
         <div className="mt-12 grid gap-12 md:mt-16 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-5">
             {profile.intro && (
-              <p className="rise max-w-[34rem] text-lg leading-relaxed text-muted sm:text-xl" style={delay(700)}>
+              <p
+                className="rise max-w-[34rem] font-mono text-[0.95rem] leading-[1.75] tracking-[-0.01em] text-ink/80 sm:text-base"
+                style={delay(700)}
+              >
                 {profile.intro}
               </p>
             )}

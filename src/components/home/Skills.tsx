@@ -4,7 +4,6 @@ import {
   motion,
   MotionValue,
   useMotionValueEvent,
-  useReducedMotion,
   useScroll,
   useTransform,
 } from "framer-motion";
@@ -12,6 +11,7 @@ import { SkillGroup } from "../../@types/about";
 import { SectionHeader } from "../ui/SectionHeader";
 import { Reveal } from "../ui/Reveal";
 import { EASE } from "../../utils/animations";
+import { SkillOrbit } from "../motion/SkillOrbit";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
@@ -19,95 +19,6 @@ const pad = (n: number) => String(n).padStart(2, "0");
 const STEP_VH = 60;
 
 /* ------------------------------------------------------------------ */
-
-/**
- * Hub diagram for one capability area, generated from its YAML items: the
- * area in the middle, each technology as a labelled node on either side.
- * Lines are SVG in a 0-100 box stretched over the figure; labels are HTML so
- * they stay at reading size at any width.
- */
-const HubDiagram: React.FC<{ group: SkillGroup }> = ({ group }) => {
-  const reduce = useReducedMotion();
-  const items = group.items ?? [];
-  const half = Math.ceil(items.length / 2);
-  const nodes = items.map((name, i) => {
-    const left = i < half;
-    const k = left ? i : i - half;
-    const count = left ? half : items.length - half;
-    const y = count === 1 ? 50 : 10 + (k * 80) / (count - 1);
-    return { name, left, x: left ? 30 : 70, y };
-  });
-
-  return (
-    <figure className="relative aspect-[16/10] w-full">
-      <figcaption className="sr-only">
-        {group.title}: {items.join(", ")}
-      </figcaption>
-      <svg aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full overflow-visible">
-        {nodes.map((n, i) => (
-          <g key={n.name}>
-            <motion.line
-              x1={50}
-              y1={50}
-              x2={n.x}
-              y2={n.y}
-              style={{ stroke: "rgb(var(--c-faint) / 0.6)" }}
-              strokeWidth={1}
-              vectorEffect="non-scaling-stroke"
-              initial={{ pathLength: reduce ? 1 : 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 + i * 0.05, ease: EASE }}
-            />
-            {reduce ? null : (
-              <line
-                x1={50}
-                y1={50}
-                x2={n.x}
-                y2={n.y}
-                pathLength={100}
-                className="hub-packet stroke-accent"
-                strokeWidth={2}
-                vectorEffect="non-scaling-stroke"
-                style={{ animationDelay: `${0.8 + ((i * 0.37) % 1.6)}s` }}
-              />
-            )}
-          </g>
-        ))}
-      </svg>
-
-      {/* Hub */}
-      <motion.div
-        className="absolute left-1/2 top-1/2 z-10 w-[34%] -translate-x-1/2 -translate-y-1/2 border border-ink bg-ink px-2 py-3 text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.45, ease: EASE }}
-      >
-        <span className="block font-mono text-label uppercase tracking-[0.05em] text-canvas/70">{pad(items.length)} nodes</span>
-        <span className="mt-1 block font-display text-[0.85rem] font-semibold uppercase leading-tight tracking-[-0.01em] text-canvas xl:text-[1rem]">
-          {group.title}
-        </span>
-      </motion.div>
-
-      {/* Nodes: anchored on the line end, extending outward */}
-      {nodes.map((n, i) => (
-        <motion.span
-          key={n.name}
-          className="absolute z-10 max-w-[29%] border border-line bg-canvas px-2.5 py-1.5 font-mono text-meta leading-tight text-ink"
-          style={
-            n.left
-              ? { right: `${100 - n.x}%`, top: `${n.y}%`, translateY: "-50%" }
-              : { left: `${n.x}%`, top: `${n.y}%`, translateY: "-50%" }
-          }
-          initial={{ opacity: 0, x: reduce ? 0 : n.left ? 12 : -12 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.45, delay: 0.25 + i * 0.05, ease: EASE }}
-        >
-          {n.name}
-        </motion.span>
-      ))}
-    </figure>
-  );
-};
 
 /** Bottom tab with its own progress bar for the pinned view. */
 const PinTab: React.FC<{
@@ -183,7 +94,7 @@ const PinnedCapabilities: React.FC<{ groups: SkillGroup[] }> = ({ groups }) => {
             </AnimatePresence>
           </div>
           <div className="lg:col-span-7">
-            <HubDiagram key={current.title} group={current} />
+            <SkillOrbit title={current.title} items={current.items ?? []} index={active} total={n} />
           </div>
         </div>
         <nav aria-label="Capability areas" className="mt-8 grid gap-6" style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}>

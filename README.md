@@ -99,7 +99,7 @@ npm run build && npm run serve
 src/
   components/
     home/        Hero, FeaturedWork, MoreProjects, Experience, CareerTimeline, About, Recovery (+ recoverySequence.ts), Skills, Contact
-    motion/      SystemField (3D hero canvas: Canvas 2D perspective, drag to orbit), YearOdometer, SplitText, ScrambleText, Typer, CountUp, Wipe, NextSection, Marquee
+    motion/      SystemField (3D hero canvas: Canvas 2D perspective, drag to orbit), SkillOrbit (3D capability map), YearOdometer, SplitText, ScrambleText, Typer, CountUp, Wipe, NextSection, Marquee
     visuals/     DecisionTrace, ArchitectureDiagram, BrowserFrame
     ui/          Reveal, SectionHeader, TechList, ArrowLink
     CommandPalette/  Explore/  Toaster/  Hud/  Navigation/  Footer/  ScrollProgress/  Seo/  Layout.tsx
@@ -126,8 +126,9 @@ scroll %, counts) come from real data only.
 
 Experience shows the start year of the role being read as rolling digits.
 Capabilities pins on tall desktop screens (lg and at least 800px high) and
-steps through each group with a progress tab bar and a hub diagram drawn from
-the group's `items`; shorter or narrower screens get the tabbed or stacked
+steps through each group with a progress tab bar and a 3D capability map
+(`motion/SkillOrbit.tsx`, Canvas 2D, drag to orbit) drawn from the group's
+`items`; shorter or narrower screens get the tabbed or stacked
 layout. The "Recovery" section turns the "Own it in production" principle into
 an incident simulator: trigger kill -9, out of memory or a bad deploy and
 watch detection, restart or rollback, state restore and readiness, with logs,

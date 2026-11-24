@@ -27,13 +27,14 @@ export const onClientEntry = () => {
 };
 
 /**
- * Wraps every page with Vercel Analytics component
+ * Vercel Web Analytics. Mounted once at the root (not per page) so the script
+ * is injected a single time; it records client-side route changes itself.
+ * It only sends data from Vercel deployments and logs to the console in
+ * `gatsby develop`.
  */
-export const wrapPageElement = ({ element }) => {
-  return (
-    <>
-      {element}
-      <Analytics />
-    </>
-  );
-};
+export const wrapRootElement = ({ element }) => (
+  <>
+    {element}
+    <Analytics framework="gatsby" />
+  </>
+);

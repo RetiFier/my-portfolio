@@ -368,31 +368,3 @@
     opacity: 0;
   }
 }
-
-/* Packet running from a capability hub out to a node. */
-.hub-packet {
-  stroke-dasharray: 6 94;
-  stroke-dashoffset: 6;
-  animation: hub-packet 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-}
-
-@keyframes hub-packet {
-  0% {
-    stroke-dashoffset: 6;
-    opacity: 0;
-  }
-  10%,
-  85% {
-    opacity: 1;
-  }
-  100% {
-    stroke-dashoffset: -94;
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hub-packet {
-    display: none;
-  }
-}
